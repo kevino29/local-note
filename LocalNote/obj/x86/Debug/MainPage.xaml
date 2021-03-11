@@ -11,13 +11,13 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
-        <CollectionViewSource x:ConnectionId='2' x:Name="NotesCollection"                              />
+        <CollectionViewSource x:ConnectionId='2' x:Name="NotesCollection"                                      />
     </Page.Resources>
 
     <Page.TopAppBar>
         <CommandBar>
             <CommandBar.Content>
-                <TextBlock x:ConnectionId='3' x:Name="noteTitle" Text="Sample Note Title" Margin="10" />
+                <TextBlock x:ConnectionId='3' x:Name="noteTitle"                                                      Margin="10" />
             </CommandBar.Content>
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:ConnectionId='4' x:Name="About" Label="About"></AppBarButton>
@@ -49,7 +49,8 @@
                  PlaceholderText="Search notes" Margin="0,0,0,4" />
 
         <ListView x:ConnectionId='6' x:Name="notesListView" Grid.Column="0"
-                  ItemsSource="{Binding Source={StaticResource NotesCollection}}" 
+                  ItemsSource="{Binding Source={StaticResource NotesCollection}}"
+                                                                                 
                   Margin="0,5,0,0" Grid.Row="1" >
             <ListView.ItemTemplate>
                 <DataTemplate                              >
@@ -58,10 +59,12 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <RelativePanel Grid.Row="1" Grid.Column="1" 
-                       DataContext="{Binding Source={StaticResource NotesCollection}}">
-            <TextBlock x:ConnectionId='7'                                  />
-        </RelativePanel>
+
+        <TextBox x:ConnectionId='7' Grid.RowSpan="2" Grid.Column="1" 
+                                                                       
+                 TextWrapping="Wrap" 
+                 Margin="10"
+                 FontSize="18"/>
     </Grid>
 </Page>
 

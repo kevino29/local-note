@@ -10,7 +10,6 @@ C:\Users\Kevin\source\repos\LocalNote\LocalNote\bin\x86\Debug\Core\LocalNote.exe
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\bin\x86\Debug\LocalNote.build.appxrecipe
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\bin\x86\Debug\System.Runtime.dll
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\bin\x86\Debug\Microsoft.UI.Xaml.Markup.winmd
-C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\LocalNote.csprojAssemblyReference.cache
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\App.g.i.cs
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\App.g.cs
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\MainPage.g.i.cs
@@ -43,3 +42,4 @@ C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\qualifiers.txt.int
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424959200000000.json
+C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\LocalNote.csprojAssemblyReference.cache

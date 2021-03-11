@@ -11,13 +11,13 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
-        <CollectionViewSource x:Name="NotesCollection" Source="{x:Bind Notes.Notes}"/>
+        <CollectionViewSource x:Name="NotesCollection" Source="{x:Bind NoteViewModel.Notes}"/>
     </Page.Resources>
 
     <Page.TopAppBar>
         <CommandBar>
             <CommandBar.Content>
-                <TextBlock x:Name="noteTitle" Text="Sample Note Title" Margin="10" />
+                <TextBlock x:Name="noteTitle" Text="{x:Bind NoteViewModel.NoteTitle, Mode=TwoWay}" Padding="10" />
             </CommandBar.Content>
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="About" Label="About"></AppBarButton>
@@ -46,21 +46,23 @@
         </Grid.ColumnDefinitions>
 
         <TextBox Grid.Row="0" Grid.Column="0"
-                 PlaceholderText="Search notes" Margin="0,0,0,4" />
+                 PlaceholderText="Search notes" />
 
         <ListView x:Name="notesListView" Grid.Column="0"
-                  ItemsSource="{Binding Source={StaticResource NotesCollection}}" 
+                  ItemsSource="{Binding Source={StaticResource NotesCollection}}"
+                  SelectedItem="{x:Bind NoteViewModel.SelectedNote, Mode=TwoWay}"
                   Margin="0,5,0,0" Grid.Row="1" >
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models:NoteModel">
-                    <TextBlock Text="{x:Bind NoteTitle}"/>
+                    <TextBlock Text="{x:Bind NoteTitle}" FontSize="18"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <RelativePanel Grid.Row="1" Grid.Column="1" 
-                       DataContext="{Binding Source={StaticResource NotesCollection}}">
-            <TextBlock Text="{x:Bind Notes.NoteContent}"/>
-        </RelativePanel>
+        <TextBox Grid.RowSpan="2" Grid.Column="1" 
+                 Text="{x:Bind NoteViewModel.NoteContent, Mode=TwoWay}"
+                 TextWrapping="Wrap" 
+                 Padding="10"
+                 FontSize="18"/>
     </Grid>
 </Page>

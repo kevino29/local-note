@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,13 +9,36 @@ using LocalNote.Models;
 
 namespace LocalNote.ViewModels
 {
-    public class NoteViewModel
+    public class NoteViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private string noteTitle;
         private string noteContent;
-
+        private NoteModel selectedNote;
         private ObservableCollection<NoteModel> notes;
-        public ObservableCollection<NoteModel> Notes { get { return this.notes; } }
+
+        public ObservableCollection<NoteModel> Notes { get { return notes; } }
+
+        public NoteModel SelectedNote
+        {
+            get { return selectedNote; }
+            set
+            {
+                selectedNote = value;
+                if (value == null)
+                {
+                    NoteContent = "Select a note to see the content";
+                }
+                else
+                {
+                    noteTitle = value.NoteTitle;
+                    noteContent = value.NoteContent;
+                }
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NoteTitle"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NoteContent"));
+            }
+        }
 
         public string NoteTitle {
             get { return noteTitle; }
@@ -31,9 +55,9 @@ namespace LocalNote.ViewModels
         {
             notes = new ObservableCollection<NoteModel>();
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 1; i <= 100; i++)
             {
-                notes.Add(new NoteModel("Title " + i, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                notes.Add(new NoteModel("Title " + i, i +  " Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                     "Ut eleifend dui eu leo bibendum hendrerit. Integer vehicula, nisi sed sodales aliquet, " +
                     "ipsum sapien malesuada nunc, tristique accumsan quam libero sed erat. " +
                     "Nulla nunc leo, mattis non massa efficitur, semper ullamcorper nisi. " +

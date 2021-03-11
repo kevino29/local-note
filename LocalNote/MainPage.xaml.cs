@@ -23,11 +23,11 @@ namespace LocalNote
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public ViewModels.NoteViewModel Notes { get; set; }
+        public ViewModels.NoteViewModel NoteViewModel { get; set; }
         public MainPage()
         {
             this.InitializeComponent();
-            this.Notes = new ViewModels.NoteViewModel();
+            this.NoteViewModel = new ViewModels.NoteViewModel();
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
