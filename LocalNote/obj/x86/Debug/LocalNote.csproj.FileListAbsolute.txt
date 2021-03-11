@@ -47,3 +47,4 @@ C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\SaveNoteDial
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\SaveNoteDialog.g.cs
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\SaveNoteDialog.xaml
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\SaveNoteDialog.xbf
+C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\LocalNote.csprojAssemblyReference.cache

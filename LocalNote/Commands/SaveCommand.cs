@@ -11,26 +11,45 @@ namespace LocalNote.Commands
     public class SaveCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
-        private ViewModels.NoteViewModel notes;
+        private ViewModels.NoteViewModel noteViewModel;
 
-        public SaveCommand(ViewModels.NoteViewModel notes)
+        public SaveCommand(ViewModels.NoteViewModel noteViewModel)
         {
-            this.notes = notes;
+            this.noteViewModel = noteViewModel;
         }
 
         public bool CanExecute(object parameter)
         {
-            return notes.SelectedNote != null;
+            return noteViewModel.SelectedNote != null;
         }
 
         public async void Execute(object parameter)
         {
-            Views.SaveNoteDialog save = new Views.SaveNoteDialog();
-            ContentDialogResult result = await save.ShowAsync();
-
-            if (result == ContentDialogResult.Primary)
+            // Check if the note has been saved once, and in the repo
+            if (noteViewModel.SelectedNote.NoteTitle == "Untitled Note")
             {
+                // Make new data in the repo
+                Views.SaveNoteDialog save = new Views.SaveNoteDialog();
+                ContentDialogResult result = await save.ShowAsync();
 
+                if (result == ContentDialogResult.Primary)
+                {
+                    noteViewModel.SelectedNote.NoteTitle = save.NoteTitle;
+                    Repositories.NotesRepo.SaveNotesToFile(noteViewModel.SelectedNote);
+
+                    ContentDialog dialog = new ContentDialog()
+                    {
+                        Title = "Saved successfully",
+                        Content = "'" + noteViewModel.SelectedNote.NoteTitle + "'" + " has been saved.",
+                        PrimaryButtonText = "OK",
+                    };
+                    await dialog.ShowAsync();
+                }
+            }
+            // The note is already in the repo, just override the data
+            else
+            {
+                // Override existing data in the repo
             }
         }
 
