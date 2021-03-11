@@ -42,7 +42,6 @@ C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\qualifiers.txt.int
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424959200000000.json
-C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\LocalNote.csprojAssemblyReference.cache
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\SaveNoteDialog.xbf
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\SaveNoteDialog.g.i.cs
 C:\Users\Kevin\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\SaveNoteDialog.g.cs

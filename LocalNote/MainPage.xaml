@@ -12,7 +12,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
-        <CollectionViewSource x:Name="NotesCollection" Source="{x:Bind NoteViewModel.Notes}"/>
+        <CollectionViewSource x:Name="NotesCollection" Source="{x:Bind NoteViewModel.NotesForLV}"/>
     </Page.Resources>
 
     <Page.TopAppBar>
@@ -25,7 +25,8 @@
                 <AppBarButton x:Name="Exit" Label="Exit" Click="Exit_Click"></AppBarButton>
             </CommandBar.SecondaryCommands>
             <AppBarButton Icon="Add" Label="Add"
-                          ToolTipService.ToolTip="Add Note"></AppBarButton>
+                          ToolTipService.ToolTip="Add Note"
+                          Command="{x:Bind NoteViewModel.AddCommand}"></AppBarButton>
             <AppBarButton Icon="Save" Label="Save"
                           ToolTipService.ToolTip="Save Note"
                           Command="{x:Bind NoteViewModel.SaveCommand}"></AppBarButton>
@@ -47,12 +48,13 @@
             <ColumnDefinition Width="383*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBox Grid.Row="0" Grid.Column="0"
-                 PlaceholderText="Search notes" />
+        <TextBox x:Name="SearchBox" Grid.Row="0" Grid.Column="0"
+                 PlaceholderText="Search notes" FontSize="16"
+                 Text="{x:Bind NoteViewModel.Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <ListView x:Name="notesListView" Grid.Column="0"
                   ItemsSource="{Binding Source={StaticResource NotesCollection}}"
-                  SelectedItem="{x:Bind NoteViewModel.SelectedNote, Mode=TwoWay}"
+                  SelectedItem="{x:Bind NoteViewModel.SelectedNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   Margin="0,5,0,0" Grid.Row="1" >
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models:NoteModel">
@@ -62,7 +64,8 @@
         </ListView>
 
         <TextBox Grid.RowSpan="2" Grid.Column="1" 
-                 Text="{x:Bind NoteViewModel.NoteContent, Mode=TwoWay}"
+                 Text="{x:Bind NoteViewModel.NoteContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 PlaceholderText="Type your note here..."
                  TextWrapping="Wrap" 
                  Padding="10"
                  FontSize="18"/>
