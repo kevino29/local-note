@@ -73,6 +73,9 @@
     <AppxPackagedFile Include="C:\Users\Kevin\source\repos\LocalNote\LocalNote\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Kevin\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\SaveNoteDialog.xbf">
+      <PackagePath>Views\SaveNoteDialog.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>

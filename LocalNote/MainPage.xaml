@@ -5,6 +5,7 @@
     xmlns:local="using:LocalNote"
     xmlns:models="using:LocalNote.Models"
     xmlns:vm="using:LocalNote.ViewModels"
+    xmlns:commands="using:LocalNote.Commands"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -26,7 +27,8 @@
             <AppBarButton Icon="Add" Label="Add"
                           ToolTipService.ToolTip="Add Note"></AppBarButton>
             <AppBarButton Icon="Save" Label="Save"
-                          ToolTipService.ToolTip="Save Note"></AppBarButton>
+                          ToolTipService.ToolTip="Save Note"
+                          Command="{x:Bind NoteViewModel.SaveCommand}"></AppBarButton>
             <AppBarButton Icon="Edit" Label="Edit"
                           ToolTipService.ToolTip="Edit Note"></AppBarButton>
             <AppBarSeparator/>

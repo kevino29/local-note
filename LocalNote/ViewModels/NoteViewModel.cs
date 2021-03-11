@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LocalNote.Models;
+using LocalNote.Commands;
 
 namespace LocalNote.ViewModels
 {
@@ -19,6 +20,7 @@ namespace LocalNote.ViewModels
         private ObservableCollection<NoteModel> notes;
 
         public ObservableCollection<NoteModel> Notes { get { return notes; } }
+        public SaveCommand SaveCommand { get; }
 
         public NoteModel SelectedNote
         {
@@ -42,22 +44,43 @@ namespace LocalNote.ViewModels
 
         public string NoteTitle {
             get { return noteTitle; }
-            set { noteTitle = value; }
+            set 
+            {
+                if (SelectedNote != null)
+                {
+                    SelectedNote.NoteTitle = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NoteTitle"));
+                }
+                else
+                    noteTitle = value;
+            }
         }
 
         public string NoteContent
         {
             get { return noteContent; }
-            set { noteContent = value; }
+            set
+            {
+                if (SelectedNote != null)
+                {
+                    SelectedNote.NoteContent = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NoteContent"));
+                    // Only enable the save button when the content changes
+                    SaveCommand.FireCanExecuteChanged();
+                }
+                else
+                    noteContent = value;
+            }
         }
 
         public NoteViewModel()
         {
             notes = new ObservableCollection<NoteModel>();
+            SaveCommand = new SaveCommand(this);
 
             for (int i = 1; i <= 100; i++)
             {
-                notes.Add(new NoteModel("Title " + i, i +  " Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                notes.Add(new NoteModel("Title " + i, i +  ". Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                     "Ut eleifend dui eu leo bibendum hendrerit. Integer vehicula, nisi sed sodales aliquet, " +
                     "ipsum sapien malesuada nunc, tristique accumsan quam libero sed erat. " +
                     "Nulla nunc leo, mattis non massa efficitur, semper ullamcorper nisi. " +
