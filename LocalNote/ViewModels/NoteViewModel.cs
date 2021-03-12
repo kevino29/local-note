@@ -40,6 +40,8 @@ namespace LocalNote.ViewModels
                     return selectedNote;
                 else
                 {
+                    // If there is no selected note,
+                    // Create a buffer note and set that as selected
                     Buffer = new NoteModel();
                     selectedNote = Buffer;
                     return selectedNote;
@@ -96,9 +98,12 @@ namespace LocalNote.ViewModels
             {
                 if (SelectedNote != null)
                 {
+                    // Check if the title changed from previous
                     if (SelectedNote.Title != value)
                     {
                         SelectedNote.Title = value;
+
+                        // Only activate the saving command when the title changes
                         SelectedNote.NeedSaving = true;
                         SelectedNote.FirePropertyChanged("NeedSaving");
                         SaveCommand.FireCanExecuteChanged();
@@ -118,9 +123,12 @@ namespace LocalNote.ViewModels
             {
                 if (SelectedNote != null)
                 {
+                    // Check if the content changed from previous
                     if (SelectedNote.Content != value)
                     {
                         SelectedNote.Content = value;
+
+                        // Only activate the saving command when the content changes
                         SelectedNote.NeedSaving = true;
                         SelectedNote.FirePropertyChanged("NeedSaving");
                         SaveCommand.FireCanExecuteChanged();
@@ -136,7 +144,10 @@ namespace LocalNote.ViewModels
             get { return this.filter; }
             set 
             {
+                // Skip if the new filter is the same as previous
                 if (value == filter) { return; }
+
+                // Otherwise, perform a filter
                 this.filter = value;
                 PerformFilter();
             }
@@ -147,6 +158,7 @@ namespace LocalNote.ViewModels
             get { return this.editMode; }
             set
             {
+                // Edit mode is always off when there is no note selected
                 if (SelectedNote == null)
                 {
                     editMode = false;
@@ -161,6 +173,7 @@ namespace LocalNote.ViewModels
             get { return this.readOnly; }
             set
             {
+                // Read only mode is always off when in edit mode
                 if (EditMode)
                 {
                     readOnly = false;
@@ -175,6 +188,8 @@ namespace LocalNote.ViewModels
             if (this.filter == null)
             {
                 filter = "";
+
+                // Clear the collection of notes used to display to the UI
                 NotesForLV.Clear();
                 foreach (var note in Notes)
                 {
@@ -200,7 +215,7 @@ namespace LocalNote.ViewModels
                 NotesForLV.Remove(x);
             }
 
-            // Add all the notes that matches the filter to the list that is shown to the user
+            // Add all the notes that matches the filter to the list that is displayed in the UI
             for (int i = 0; i < result.Count; i++)
             {
                 var resultItem = result[i];
@@ -219,6 +234,8 @@ namespace LocalNote.ViewModels
             AddCommand = new AddCommand(this);
             EditCommand = new EditCommand(this);
             DeleteCommand = new DeleteCommand(this);
+            Buffer = new NoteModel();
+            SelectedNote = Buffer;
             EditMode = false;
             ReadOnly = true;
 
@@ -227,9 +244,12 @@ namespace LocalNote.ViewModels
 
         public async void LoadNotes()
         {
+            // Get the folder where the notes are stored
+            // Then get all the files within that folder
             StorageFolder notesFolder = ApplicationData.Current.LocalFolder;
             IReadOnlyList<StorageFile> fileList = await notesFolder.GetFilesAsync();
 
+            // Read each file
             foreach(var file in fileList)
             {
                 string content = await FileIO.ReadTextAsync(file);

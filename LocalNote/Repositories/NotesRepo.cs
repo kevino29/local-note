@@ -18,7 +18,7 @@ namespace LocalNote.Repositories
             string fileName = selected.Title.Replace(" ", "_") + ".txt";
             try
             {
-                // Create the file asynchronously, then add the content
+                // Create the file asynchronously, then add the content asynchronously
                 StorageFile noteFile = 
                     await notesFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
                 await FileIO.AppendTextAsync(noteFile, selected.Content);
@@ -32,9 +32,9 @@ namespace LocalNote.Repositories
         public async static void DeleteNoteFile(Models.NoteModel selected)
         {
             string fileName = selected.Title.Replace(" ", "_") + ".txt";
-
             try
             {
+                // Get the targeted file, then delete it asynchronously
                 StorageFile noteToDelete =
                     await notesFolder.GetFileAsync(fileName);
                 await noteToDelete.DeleteAsync();

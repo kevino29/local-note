@@ -19,6 +19,9 @@ namespace LocalNote.Commands
 
         public bool CanExecute(object parameter)
         {
+            // If there are no note selected or
+            // if the current note hasn't been saved yet (ie. The Buffer Note)
+            // Then always return false
             if (this.noteViewModel.SelectedNote == null ||
                 this.noteViewModel.SelectedNote == this.noteViewModel.Buffer)
                 return false;

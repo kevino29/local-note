@@ -58,6 +58,7 @@ namespace LocalNote.Commands
                         }
                     }
 
+                    // Look for an error
                     string content;
                     if (empty)
                         content = "The title cannot be empty. Please enter a title.";
@@ -65,8 +66,9 @@ namespace LocalNote.Commands
                         content = "That title already exists. Please enter a new unique title.";
                     else if (invalid)
                         content = "The title contains invalid character(s). Please enter a new title.";
-                    else break;
+                    else break; // Skip, if there are none
 
+                    // Show a dialog that there is an error
                     ContentDialog error = new ContentDialog()
                     {
                         Title = "Error Occurred",

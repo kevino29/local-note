@@ -19,6 +19,7 @@ namespace LocalNote.Commands
 
         public bool CanExecute(object parameter)
         {
+            // Always able to add
             return true;
         }
 
