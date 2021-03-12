@@ -73,6 +73,9 @@ namespace LocalNote.Commands
                     {
                         noteViewModel.Notes.Add(noteViewModel.SelectedNote);
                         noteViewModel.NotesForLV.Add(noteViewModel.SelectedNote);
+
+                        // Set the buffer back to null
+                        noteViewModel.Buffer = null;
                     }
 
                     // Notify that the selected note and the selected note's title changed
@@ -94,6 +97,8 @@ namespace LocalNote.Commands
                 PrimaryButtonText = "OK",
             };
             await dialog.ShowAsync();
+
+            // After saving defaults ...
 
             // Turn off need saving
             this.noteViewModel.SelectedNote.NeedSaving = false;

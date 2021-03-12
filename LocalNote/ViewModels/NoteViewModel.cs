@@ -30,6 +30,7 @@ namespace LocalNote.ViewModels
         public SaveCommand SaveCommand { get; }
         public AddCommand AddCommand { get; }
         public EditCommand EditCommand { get; }
+        public DeleteCommand DeleteCommand { get; }
 
         public NoteModel SelectedNote
         {
@@ -49,8 +50,8 @@ namespace LocalNote.ViewModels
                 selectedNote = value;
                 if (value == null)
                 {
-                    NoteTitle = "";
-                    NoteContent = "Select a note to see the content or create a new note.";
+                    noteTitle = "";
+                    noteContent = "";
                 }
                 else
                 {
@@ -64,6 +65,9 @@ namespace LocalNote.ViewModels
 
                 // Always notify if the selected note needs saving
                 SaveCommand.FireCanExecuteChanged();
+
+                // Always turn on the ability to delete the selected note
+                DeleteCommand.FireCanExecuteChanged();
                 
                 // Always turn off edit mode when switching notes
                 EditMode = false;
@@ -214,6 +218,7 @@ namespace LocalNote.ViewModels
             SaveCommand = new SaveCommand(this);
             AddCommand = new AddCommand(this);
             EditCommand = new EditCommand(this);
+            DeleteCommand = new DeleteCommand(this);
             EditMode = false;
             ReadOnly = true;
 

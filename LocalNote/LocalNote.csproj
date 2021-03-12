@@ -120,6 +120,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\AddCommand.cs" />
+    <Compile Include="Commands\DeleteCommand.cs" />
     <Compile Include="Commands\EditCommand.cs" />
     <Compile Include="Commands\SaveCommand.cs" />
     <Compile Include="MainPage.xaml.cs">
