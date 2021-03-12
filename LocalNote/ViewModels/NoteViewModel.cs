@@ -38,7 +38,8 @@ namespace LocalNote.ViewModels
                 selectedNote = value;
                 if (value == null)
                 {
-                    NoteContent = "Select a note to see the content";
+                    NoteTitle = "";
+                    NoteContent = "Select a note to see the content or create a new note.";
                 }
                 else
                 {
@@ -49,6 +50,9 @@ namespace LocalNote.ViewModels
                 // Notify that the title and content changed
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NoteTitle)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NoteContent)));
+
+                // Always notify if the selected note needs saving
+                SaveCommand.FireCanExecuteChanged();
                 
                 // Always turn off edit mode when switching notes
                 EditMode = false;
@@ -71,8 +75,15 @@ namespace LocalNote.ViewModels
             {
                 if (SelectedNote != null)
                 {
-                    SelectedNote.Title = value;
-                    SaveCommand.FireCanExecuteChanged();
+                    if (SelectedNote.Title != value)
+                    {
+                        SelectedNote.Title = value;
+                        SelectedNote.NeedSaving = true;
+                        SelectedNote.FirePropertyChanged("NeedSaving");
+                        SaveCommand.FireCanExecuteChanged();
+                    }
+                    else
+                        SelectedNote.Title = value;
                 }
                 else
                     noteTitle = value;
@@ -86,8 +97,15 @@ namespace LocalNote.ViewModels
             {
                 if (SelectedNote != null)
                 {
-                    SelectedNote.Content = value;
-                    SaveCommand.FireCanExecuteChanged();
+                    if (SelectedNote.Content != value)
+                    {
+                        SelectedNote.Content = value;
+                        SelectedNote.NeedSaving = true;
+                        SelectedNote.FirePropertyChanged("NeedSaving");
+                        SaveCommand.FireCanExecuteChanged();
+                    }
+                    else
+                        SelectedNote.Content = value;
                 }
                 else
                     noteContent = value;

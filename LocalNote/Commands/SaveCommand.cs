@@ -21,7 +21,8 @@ namespace LocalNote.Commands
 
         public bool CanExecute(object parameter)
         {
-            return noteViewModel.SelectedNote != null;
+            if (noteViewModel.SelectedNote == null) return false;
+            return noteViewModel.SelectedNote.NeedSaving;
         }
 
         public async void Execute(object parameter)
@@ -92,6 +93,11 @@ namespace LocalNote.Commands
                 PrimaryButtonText = "OK",
             };
             await dialog.ShowAsync();
+
+            // Turn off need saving
+            this.noteViewModel.SelectedNote.NeedSaving = false;
+            this.noteViewModel.SelectedNote.FirePropertyChanged("NeedSaving");
+            this.noteViewModel.SaveCommand.FireCanExecuteChanged();
 
             // Turn off edit mode
             this.noteViewModel.EditMode = false;

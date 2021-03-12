@@ -12,6 +12,7 @@ namespace LocalNote.Models
         public event PropertyChangedEventHandler PropertyChanged;
         public string Title { get; set; }
         public string Content { get; set; }
+        private bool needSaving = false;
 
         public NoteModel()
         {
@@ -23,6 +24,12 @@ namespace LocalNote.Models
         {
             this.Title = title;
             this.Content = content;
+        }
+
+        public bool NeedSaving
+        {
+            get { return this.needSaving; }
+            set { this.needSaving = value; }
         }
 
         public void FirePropertyChanged(string property)
