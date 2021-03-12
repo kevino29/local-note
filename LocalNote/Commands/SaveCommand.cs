@@ -94,6 +94,9 @@ namespace LocalNote.Commands
                         noteViewModel.Buffer = null;
                     }
 
+                    // Update the notes list order base on note titles
+                    noteViewModel.UpdateNotesLists();
+
                     // Notify that the selected note and the selected note's title changed
                     noteViewModel.FirePropertyChanged("SelectedNote");
                     noteViewModel.SelectedNote.FirePropertyChanged("Title");

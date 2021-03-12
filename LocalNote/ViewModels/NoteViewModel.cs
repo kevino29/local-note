@@ -15,8 +15,8 @@ namespace LocalNote.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private readonly ObservableCollection<NoteModel> notes;
-        private readonly ObservableCollection<NoteModel> notesForLV;
+        private ObservableCollection<NoteModel> notes;
+        private ObservableCollection<NoteModel> notesForLV;
         private string noteTitle;
         private string noteContent;
         private string filter;
@@ -32,6 +32,28 @@ namespace LocalNote.ViewModels
         public EditCommand EditCommand { get; }
         public DeleteCommand DeleteCommand { get; }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public NoteViewModel()
+        {
+            notes = new ObservableCollection<NoteModel>();
+            notesForLV = new ObservableCollection<NoteModel>();
+            SaveCommand = new SaveCommand(this);
+            AddCommand = new AddCommand(this);
+            EditCommand = new EditCommand(this);
+            DeleteCommand = new DeleteCommand(this);
+            Buffer = new NoteModel();
+            SelectedNote = Buffer;
+            EditMode = false;
+            ReadOnly = true;
+
+            LoadNotes();
+        }
+
+        /// <summary>
+        /// Gets and sets the selected note property.
+        /// </summary>
         public NoteModel SelectedNote
         {
             get 
@@ -81,12 +103,19 @@ namespace LocalNote.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets and sets the buffer property.
+        /// </summary>
         public NoteModel Buffer
         {
             get { return this.buffer; }
             set { this.buffer = value; }
         }
 
+        /// <summary>
+        /// Fire the PropertyChanged event with the given property name.
+        /// </summary>
+        /// <param name="property"></param>
         public void FirePropertyChanged(string property)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
@@ -226,20 +255,18 @@ namespace LocalNote.ViewModels
             }
         }
 
-        public NoteViewModel()
+        public void UpdateNotesLists()
         {
-            notes = new ObservableCollection<NoteModel>();
-            notesForLV = new ObservableCollection<NoteModel>();
-            SaveCommand = new SaveCommand(this);
-            AddCommand = new AddCommand(this);
-            EditCommand = new EditCommand(this);
-            DeleteCommand = new DeleteCommand(this);
-            Buffer = new NoteModel();
-            SelectedNote = Buffer;
-            EditMode = false;
-            ReadOnly = true;
+            // Order the notes list based on the note title
+            List<NoteModel> orderedList = Notes.OrderBy(x => x.Title).ToList();
+            notes = new ObservableCollection<NoteModel>(orderedList);
 
-            LoadNotes();
+            // Copy the notes list
+            NotesForLV.Clear();
+            foreach (var note in Notes)
+            {
+                NotesForLV.Add(note);
+            }
         }
 
         public async void LoadNotes()
