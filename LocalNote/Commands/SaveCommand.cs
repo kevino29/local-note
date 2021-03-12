@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,32 +35,45 @@ namespace LocalNote.Commands
                 ContentDialogResult result;
 
                 // This loop makes sure that the user doesn't enter
-                // a duplicate title for a note
+                // a duplicate, invalid, or empty title for a note
                 while (true)
                 {
-                    bool flag = false;
+                    bool duplicate = false;
                     result = await save.ShowAsync();
 
-                    foreach(var note in noteViewModel.Notes)
+                    // Check for empty title
+                    bool empty = string.IsNullOrEmpty(save.NoteTitle);
+
+                    // Check for invalid file name characters
+                    bool invalid = save.NoteTitle.Contains("_") ||
+                        save.NoteTitle.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0;
+
+                    // Check against duplicates
+                    foreach (var note in noteViewModel.Notes)
                     {
                         if (note.Title == save.NoteTitle)
                         {
-                            flag = true;
+                            duplicate = true;
                             break;
                         }
                     }
 
-                    if (flag)
-                    {
-                        ContentDialog error = new ContentDialog()
-                        {
-                            Title = "Error Occurred",
-                            Content = "That title already exists. Please enter a new unique title.",
-                            PrimaryButtonText = "OK",
-                        };
-                        await error.ShowAsync();
-                    }
+                    string content;
+                    if (empty)
+                        content = "The title cannot be empty. Please enter a title.";
+                    else if (duplicate)
+                        content = "That title already exists. Please enter a new unique title.";
+                    else if (invalid)
+                        content = "The title contains invalid character(s). Please enter a new title.";
                     else break;
+
+                    ContentDialog error = new ContentDialog()
+                    {
+                        Title = "Error Occurred",
+                        Content = content,
+                        PrimaryButtonText = "OK",
+                    };
+                    await error.ShowAsync();
                 }
 
                 if (result == ContentDialogResult.Primary)
