@@ -47,6 +47,8 @@ namespace LocalNote.Commands
             // Notify that the selected note has changed
             this.noteViewModel.FirePropertyChanged("SelectedNote");
 
+            // Delete the data file in the repo
+            Repositories.NotesRepo.DeleteNoteFile(noteToDelete);
         }
 
         public void FireCanExecuteChanged()

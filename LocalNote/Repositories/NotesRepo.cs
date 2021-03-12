@@ -28,5 +28,21 @@ namespace LocalNote.Repositories
                 Debug.WriteLine("An error occured when saving the note file.");
             }
         }
+
+        public async static void DeleteNoteFile(Models.NoteModel selected)
+        {
+            string fileName = selected.Title.Replace(" ", "_") + ".txt";
+
+            try
+            {
+                StorageFile noteToDelete =
+                    await notesFolder.GetFileAsync(fileName);
+                await noteToDelete.DeleteAsync();
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("An error occurred when deleting the note file.");
+            }
+        }
     }
 }

@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Kevin\source\repos\LocalNote\LocalNote\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-03-12T17:18:37.899</Modified>
+      <Modified>2021-03-12T17:53:09.976</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Kevin\source\repos\LocalNote\LocalNote\bin\x86\Debug\LocalNote.exe">
       <PackagePath>entrypoint\LocalNote.exe</PackagePath>
-      <Modified>2021-03-12T17:18:37.432</Modified>
+      <Modified>2021-03-12T17:53:09.177</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.11\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -90,15 +90,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kevin\source\repos\LocalNote\LocalNote\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-03-12T16:51:57.851</Modified>
+      <Modified>2021-03-12T17:53:09.063</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kevin\source\repos\LocalNote\LocalNote\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-03-12T16:51:57.852</Modified>
+      <Modified>2021-03-12T17:53:09.064</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kevin\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\SaveNoteDialog.xbf">
       <PackagePath>Views\SaveNoteDialog.xbf</PackagePath>
-      <Modified>2021-03-12T16:51:57.853</Modified>
+      <Modified>2021-03-12T17:53:09.065</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -110,7 +110,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kevin\source\repos\LocalNote\LocalNote\bin\x86\Debug\Core\LocalNote.exe">
       <PackagePath>LocalNote.exe</PackagePath>
-      <Modified>2021-03-12T17:18:37.881</Modified>
+      <Modified>2021-03-12T17:53:09.952</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
