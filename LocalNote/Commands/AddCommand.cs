@@ -34,7 +34,7 @@ namespace LocalNote.Commands
             // Make the new note the selected note
             // Then update the UI to go to the new note
             noteViewModel.SelectedNote = newNote;
-            noteViewModel.FireSelectedNotePropertyChanged();
+            noteViewModel.FirePropertyChanged("SelectedNote");
         }
 
         public void FireCanExecuteChanged()

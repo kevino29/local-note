@@ -18,7 +18,7 @@
     <Page.TopAppBar>
         <CommandBar>
             <CommandBar.Content>
-                <TextBlock x:ConnectionId='3' x:Name="noteTitle"                                                      Padding="10" />
+                <TextBlock x:ConnectionId='3' x:Name="NoteTitle"                                                                                           Padding="10" />
             </CommandBar.Content>
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:ConnectionId='4' x:Name="About" Label="About"></AppBarButton>
@@ -30,8 +30,9 @@
             <AppBarButton x:ConnectionId='7' Icon="Save" Label="Save"
                           ToolTipService.ToolTip="Save Note"
                                                                       ></AppBarButton>
-            <AppBarButton Icon="Edit" Label="Edit"
-                          ToolTipService.ToolTip="Edit Note"></AppBarButton>
+            <AppBarButton x:ConnectionId='8' Icon="Edit" Label="Edit"
+                          ToolTipService.ToolTip="Edit Note"
+                                                                      ></AppBarButton>
             <AppBarSeparator/>
             <AppBarButton Icon="Delete" Label="Delete"
                           ToolTipService.ToolTip="Delete Note"></AppBarButton>
@@ -48,27 +49,28 @@
             <ColumnDefinition Width="383*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBox x:ConnectionId='8' x:Name="SearchBox" Grid.Row="0" Grid.Column="0"
+        <TextBox x:ConnectionId='9' x:Name="SearchBox" Grid.Row="0" Grid.Column="0"
                  PlaceholderText="Search notes" FontSize="16"
                                                                                                        />
 
-        <ListView x:ConnectionId='9' x:Name="notesListView" Grid.Column="0"
+        <ListView x:ConnectionId='10' x:Name="notesListView" Grid.Column="0"
                   ItemsSource="{Binding Source={StaticResource NotesCollection}}"
                                                                                                                       
                   Margin="0,5,0,0" Grid.Row="1" >
             <ListView.ItemTemplate>
                 <DataTemplate                              >
-                    <TextBlock x:ConnectionId='12'                           FontSize="18"/>
+                    <TextBlock x:ConnectionId='13'                                                                         FontSize="18"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <TextBox x:ConnectionId='10' Grid.RowSpan="2" Grid.Column="1" 
+        <TextBox x:ConnectionId='11' Grid.RowSpan="2" Grid.Column="1" 
                                                                                                             
                  PlaceholderText="Type your note here..."
                  TextWrapping="Wrap" 
                  Padding="10"
-                 FontSize="18"/>
+                 FontSize="18"
+                                                                                                               />
     </Grid>
 </Page>
 

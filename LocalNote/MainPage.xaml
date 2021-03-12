@@ -18,7 +18,7 @@
     <Page.TopAppBar>
         <CommandBar>
             <CommandBar.Content>
-                <TextBlock x:Name="noteTitle" Text="{x:Bind NoteViewModel.NoteTitle, Mode=TwoWay}" Padding="10" />
+                <TextBlock x:Name="NoteTitle" Text="{x:Bind NoteViewModel.NoteTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="10" />
             </CommandBar.Content>
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="About" Label="About"></AppBarButton>
@@ -31,7 +31,8 @@
                           ToolTipService.ToolTip="Save Note"
                           Command="{x:Bind NoteViewModel.SaveCommand}"></AppBarButton>
             <AppBarButton Icon="Edit" Label="Edit"
-                          ToolTipService.ToolTip="Edit Note"></AppBarButton>
+                          ToolTipService.ToolTip="Edit Note"
+                          Command="{x:Bind NoteViewModel.EditCommand}"></AppBarButton>
             <AppBarSeparator/>
             <AppBarButton Icon="Delete" Label="Delete"
                           ToolTipService.ToolTip="Delete Note"></AppBarButton>
@@ -58,7 +59,7 @@
                   Margin="0,5,0,0" Grid.Row="1" >
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models:NoteModel">
-                    <TextBlock Text="{x:Bind NoteTitle}" FontSize="18"/>
+                    <TextBlock Text="{x:Bind Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="18"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -68,6 +69,7 @@
                  PlaceholderText="Type your note here..."
                  TextWrapping="Wrap" 
                  Padding="10"
-                 FontSize="18"/>
+                 FontSize="18"
+                 IsReadOnly="{x:Bind NoteViewModel.ReadOnly, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </Page>

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LocalNote.Models;
 using LocalNote.Commands;
+using Windows.Storage;
 
 namespace LocalNote.ViewModels
 {
@@ -14,17 +15,20 @@ namespace LocalNote.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private readonly ObservableCollection<NoteModel> notes;
+        private readonly ObservableCollection<NoteModel> notesForLV;
         private string noteTitle;
         private string noteContent;
         private string filter;
+        private bool editMode;
+        private bool readOnly;
         private NoteModel selectedNote;
-        private ObservableCollection<NoteModel> notes;
-        private ObservableCollection<NoteModel> notesForLV;
 
         public ObservableCollection<NoteModel> Notes { get { return notes; } }
         public ObservableCollection<NoteModel> NotesForLV { get { return notesForLV; } }
         public SaveCommand SaveCommand { get; }
         public AddCommand AddCommand { get; }
+        public EditCommand EditCommand { get; }
 
         public NoteModel SelectedNote
         {
@@ -38,17 +42,27 @@ namespace LocalNote.ViewModels
                 }
                 else
                 {
-                    noteTitle = value.NoteTitle;
-                    noteContent = value.NoteContent;
+                    noteTitle = value.Title;
+                    noteContent = value.Content;
                 }
+
+                // Notify that the title and content changed
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NoteTitle)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NoteContent)));
+                
+                // Always turn off edit mode when switching notes
+                EditMode = false;
+                EditCommand.FireCanExecuteChanged();
+
+                // Always turn on read only mode when switching notes
+                ReadOnly = true;
+                FirePropertyChanged(nameof(ReadOnly));
             }
         }
 
-        public void FireSelectedNotePropertyChanged()
+        public void FirePropertyChanged(string property)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedNote)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
         public string NoteTitle {
@@ -57,7 +71,7 @@ namespace LocalNote.ViewModels
             {
                 if (SelectedNote != null)
                 {
-                    SelectedNote.NoteTitle = value;
+                    SelectedNote.Title = value;
                     SaveCommand.FireCanExecuteChanged();
                 }
                 else
@@ -72,7 +86,7 @@ namespace LocalNote.ViewModels
             {
                 if (SelectedNote != null)
                 {
-                    SelectedNote.NoteContent = value;
+                    SelectedNote.Content = value;
                     SaveCommand.FireCanExecuteChanged();
                 }
                 else
@@ -88,6 +102,34 @@ namespace LocalNote.ViewModels
                 if (value == filter) { return; }
                 this.filter = value;
                 PerformFilter();
+            }
+        }
+
+        public bool EditMode
+        {
+            get { return this.editMode; }
+            set
+            {
+                if (SelectedNote == null)
+                {
+                    editMode = false;
+                    return;
+                }
+                this.editMode = value;
+            }
+        }
+
+        public bool ReadOnly
+        {
+            get { return this.readOnly; }
+            set
+            {
+                if (EditMode)
+                {
+                    readOnly = false;
+                    return;
+                }
+                this.readOnly = value;
             }
         }
 
@@ -108,7 +150,7 @@ namespace LocalNote.ViewModels
 
             // Use LINQ query to get all the notes that match the filter text
             // Then turn it into a list
-            var result = Notes.Where(note => note.NoteTitle.ToLowerInvariant()
+            var result = Notes.Where(note => note.Title.ToLowerInvariant()
                 .Contains(lowerCaseFilter))
                 .ToList();
 
@@ -138,16 +180,20 @@ namespace LocalNote.ViewModels
             notesForLV = new ObservableCollection<NoteModel>();
             SaveCommand = new SaveCommand(this);
             AddCommand = new AddCommand(this);
+            EditCommand = new EditCommand(this);
 
-            for (int i = 1; i <= 100; i++)
+            LoadNotes();
+        }
+
+        public async void LoadNotes()
+        {
+            StorageFolder notesFolder = ApplicationData.Current.LocalFolder;
+            IReadOnlyList<StorageFile> fileList = await notesFolder.GetFilesAsync();
+
+            foreach(var file in fileList)
             {
-                notes.Add(new NoteModel("Title " + i, i +  ". Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-                    "Ut eleifend dui eu leo bibendum hendrerit. Integer vehicula, nisi sed sodales aliquet, " +
-                    "ipsum sapien malesuada nunc, tristique accumsan quam libero sed erat. " +
-                    "Nulla nunc leo, mattis non massa efficitur, semper ullamcorper nisi. " +
-                    "Morbi quis porttitor arcu. Maecenas risus lacus, tempor et tempor commodo, porta ut magna. " +
-                    "Aliquam at tempus eros, nec scelerisque ipsum. Cras vel purus eget tortor accumsan " +
-                    "lobortis non et ex."));
+                string content = await FileIO.ReadTextAsync(file);
+                notes.Add(new NoteModel(file.DisplayName.Replace("_", " "), content));
                 notesForLV.Add(notes.Last());
             }
         }

@@ -11,16 +11,17 @@ namespace LocalNote.Repositories
     public class NotesRepo
     {
         private static StorageFolder notesFolder = ApplicationData.Current.LocalFolder;
+        
 
-        public async static void SaveNotesToFile(Models.NoteModel selected)
+        public async static void SaveNoteToFile(Models.NoteModel selected)
         {
-            string fileName = selected.NoteTitle.Replace(" ", "_") + ".txt";
+            string fileName = selected.Title.Replace(" ", "_") + ".txt";
             try
             {
+                // Create the file asynchronously, then add the content
                 StorageFile noteFile = 
-                    await notesFolder.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists);
-                await FileIO.AppendTextAsync(noteFile, selected.NoteContent);
-                Debug.WriteLine(notesFolder.Path);
+                    await notesFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+                await FileIO.AppendTextAsync(noteFile, selected.Content);
             }
             catch (Exception)
             {

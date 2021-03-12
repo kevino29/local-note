@@ -1,32 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LocalNote.Models
 {
-    public class NoteModel
+    public class NoteModel : INotifyPropertyChanged
     {
-        public string NoteTitle { get; set; }
-        public string NoteContent { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public string Title { get; set; }
+        public string Content { get; set; }
 
         public NoteModel()
         {
-            this.NoteTitle = "Untitled Note";
-            this.NoteContent = "";
-        }
-
-        public NoteModel(string content)
-        {
-            this.NoteTitle = "Untitled Note";
-            this.NoteContent = content;
+            this.Title = "Untitled Note";
+            this.Content = "";
         }
 
         public NoteModel(string title, string content)
         {
-            this.NoteTitle = title;
-            this.NoteContent = content;
+            this.Title = title;
+            this.Content = content;
+        }
+
+        public void FirePropertyChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
     }
 }
