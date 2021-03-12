@@ -12,7 +12,6 @@ namespace LocalNote.Commands
     {
         public event EventHandler CanExecuteChanged;
         private ViewModels.NoteViewModel noteViewModel;
-        private List<string> savedNoteTitles = new List<string>();
 
         public SaveCommand(ViewModels.NoteViewModel noteViewModel)
         {
@@ -67,6 +66,14 @@ namespace LocalNote.Commands
                 {
                     // Get the new note title from the dialog
                     noteViewModel.SelectedNote.Title = save.NoteTitle;
+                    
+                    // Check if the selected note is a buffer
+                    // Add it to the notes lists first
+                    if (noteViewModel.SelectedNote == noteViewModel.Buffer)
+                    {
+                        noteViewModel.Notes.Add(noteViewModel.SelectedNote);
+                        noteViewModel.NotesForLV.Add(noteViewModel.SelectedNote);
+                    }
 
                     // Notify that the selected note and the selected note's title changed
                     noteViewModel.FirePropertyChanged("SelectedNote");
@@ -74,12 +81,6 @@ namespace LocalNote.Commands
                 }
                 // Do not continue if the user clicks 'Cancel'
                 else return;
-            }
-
-            // Add the note title to the list of saved notes
-            if (!savedNoteTitles.Contains(noteViewModel.SelectedNote.Title))
-            {
-                savedNoteTitles.Add(noteViewModel.SelectedNote.Title);
             }
 
             // Save the note data to file

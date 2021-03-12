@@ -23,6 +23,7 @@ namespace LocalNote.ViewModels
         private bool editMode;
         private bool readOnly;
         private NoteModel selectedNote;
+        private NoteModel buffer;
 
         public ObservableCollection<NoteModel> Notes { get { return notes; } }
         public ObservableCollection<NoteModel> NotesForLV { get { return notesForLV; } }
@@ -32,7 +33,17 @@ namespace LocalNote.ViewModels
 
         public NoteModel SelectedNote
         {
-            get { return selectedNote; }
+            get 
+            { 
+                if (selectedNote != null)
+                    return selectedNote;
+                else
+                {
+                    Buffer = new NoteModel();
+                    selectedNote = Buffer;
+                    return selectedNote;
+                }
+            }
             set
             {
                 selectedNote = value;
@@ -62,6 +73,12 @@ namespace LocalNote.ViewModels
                 ReadOnly = true;
                 FirePropertyChanged(nameof(ReadOnly));
             }
+        }
+
+        public NoteModel Buffer
+        {
+            get { return this.buffer; }
+            set { this.buffer = value; }
         }
 
         public void FirePropertyChanged(string property)
@@ -104,11 +121,9 @@ namespace LocalNote.ViewModels
                         SelectedNote.FirePropertyChanged("NeedSaving");
                         SaveCommand.FireCanExecuteChanged();
                     }
-                    else
-                        SelectedNote.Content = value;
+                    else SelectedNote.Content = value;
                 }
-                else
-                    noteContent = value;
+                else noteContent = value;
             }
         }
 
@@ -199,6 +214,8 @@ namespace LocalNote.ViewModels
             SaveCommand = new SaveCommand(this);
             AddCommand = new AddCommand(this);
             EditCommand = new EditCommand(this);
+            EditMode = false;
+            ReadOnly = true;
 
             LoadNotes();
         }
