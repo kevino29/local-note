@@ -113,14 +113,8 @@ namespace LocalNote.ViewModels
         }
 
         /// <summary>
-        /// Fire the PropertyChanged event with the given property name.
+        /// Gets and sets the note title for the currenlty selected note.
         /// </summary>
-        /// <param name="property"></param>
-        public void FirePropertyChanged(string property)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-        }
-
         public string NoteTitle {
             get { return noteTitle; }
             set 
@@ -145,6 +139,9 @@ namespace LocalNote.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets and sets the note content for the currenlty selected note.
+        /// </summary>
         public string NoteContent
         {
             get { return noteContent; }
@@ -168,6 +165,9 @@ namespace LocalNote.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets and sets the filter string.
+        /// </summary>
         public string Filter
         {
             get { return this.filter; }
@@ -182,6 +182,9 @@ namespace LocalNote.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets and sets the edit mode property.
+        /// </summary>
         public bool EditMode
         {
             get { return this.editMode; }
@@ -197,6 +200,9 @@ namespace LocalNote.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets and sets the read-only property.
+        /// </summary>
         public bool ReadOnly
         {
             get { return this.readOnly; }
@@ -212,6 +218,18 @@ namespace LocalNote.ViewModels
             }
         }
 
+        /// <summary>
+        /// Fire the PropertyChanged event with the given property name.
+        /// </summary>
+        /// <param name="property"></param>
+        public void FirePropertyChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+        }
+
+        /// <summary>
+        /// Performs a filter on the notes list based on the filter property.
+        /// </summary>
         public void PerformFilter()
         {
             if (this.filter == null)
@@ -255,6 +273,9 @@ namespace LocalNote.ViewModels
             }
         }
 
+        /// <summary>
+        /// Updates the order of the notes lists based on the invidual note's title.
+        /// </summary>
         public void UpdateNotesLists()
         {
             // Order the notes list based on the note title
@@ -269,6 +290,9 @@ namespace LocalNote.ViewModels
             }
         }
 
+        /// <summary>
+        /// Loads all the notes' data from file.
+        /// </summary>
         public async void LoadNotes()
         {
             // Get the folder where the notes are stored

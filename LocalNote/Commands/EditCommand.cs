@@ -12,11 +12,20 @@ namespace LocalNote.Commands
         public event EventHandler CanExecuteChanged;
         private readonly ViewModels.NoteViewModel noteViewModel;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="noteViewModel"></param>
         public EditCommand(ViewModels.NoteViewModel noteViewModel)
         {
             this.noteViewModel = noteViewModel;
         }
 
+        /// <summary>
+        /// Returns true if the command can be executed. Returns false otherwise.
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public bool CanExecute(object parameter)
         {
             // Always false if there are no notes selected
@@ -25,6 +34,10 @@ namespace LocalNote.Commands
             return !this.noteViewModel.EditMode;
         }
 
+        /// <summary>
+        /// Executes the command.
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
             // Change the edit mode to true, then notify
@@ -36,6 +49,9 @@ namespace LocalNote.Commands
             this.noteViewModel.FirePropertyChanged("ReadOnly");
         }
 
+        /// <summary>
+        /// Fires the CanExecuteChanged event.
+        /// </summary>
         public void FireCanExecuteChanged()
         {
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);

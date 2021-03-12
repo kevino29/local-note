@@ -14,24 +14,39 @@ namespace LocalNote.Models
         public string Content { get; set; }
         private bool needSaving = false;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public NoteModel()
         {
             this.Title = "Untitled Note";
             this.Content = "";
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="content"></param>
         public NoteModel(string title, string content)
         {
             this.Title = title;
             this.Content = content;
         }
 
+        /// <summary>
+        /// Gets and sets the need saving property.
+        /// </summary>
         public bool NeedSaving
         {
             get { return this.needSaving; }
             set { this.needSaving = value; }
         }
 
+        /// <summary>
+        /// Fire the PropertyChanged event based on the given property name.
+        /// </summary>
+        /// <param name="property"></param>
         public void FirePropertyChanged(string property)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));

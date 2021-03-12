@@ -21,6 +21,9 @@ namespace LocalNote.Views
     {
         public string NoteTitle { get; set; }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public SaveNoteDialog()
         {
             this.InitializeComponent();

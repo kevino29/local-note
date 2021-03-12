@@ -12,7 +12,10 @@ namespace LocalNote.Repositories
     {
         private static StorageFolder notesFolder = ApplicationData.Current.LocalFolder;
         
-
+        /// <summary>
+        /// Saves the given note's data to a file.
+        /// </summary>
+        /// <param name="selected"></param>
         public async static void SaveNoteToFile(Models.NoteModel selected)
         {
             string fileName = selected.Title.Replace(" ", "_") + ".txt";
@@ -29,6 +32,10 @@ namespace LocalNote.Repositories
             }
         }
 
+        /// <summary>
+        /// Deletes the give note's data file.
+        /// </summary>
+        /// <param name="selected"></param>
         public async static void DeleteNoteFile(Models.NoteModel selected)
         {
             string fileName = selected.Title.Replace(" ", "_") + ".txt";
