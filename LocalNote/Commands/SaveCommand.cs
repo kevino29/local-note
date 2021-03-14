@@ -12,7 +12,7 @@ namespace LocalNote.Commands
     public class SaveCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
-        private ViewModels.NoteViewModel noteViewModel;
+        private readonly ViewModels.NoteViewModel noteViewModel;
 
         /// <summary>
         /// Constructor

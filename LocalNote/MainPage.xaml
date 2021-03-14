@@ -22,7 +22,8 @@
             </CommandBar.Content>
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="About" Label="About"></AppBarButton>
-                <AppBarButton x:Name="Exit" Label="Exit" Click="Exit_Click"></AppBarButton>
+                <AppBarButton x:Name="Exit" Label="Exit"
+                              Command="{x:Bind NoteViewModel.ExitCommand}"></AppBarButton>
             </CommandBar.SecondaryCommands>
             <AppBarButton Icon="Add" Label="Add"
                           ToolTipService.ToolTip="Add Note"

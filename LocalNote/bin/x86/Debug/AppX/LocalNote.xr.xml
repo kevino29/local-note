@@ -28,9 +28,8 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="Label" />
-      <RootProperty Name="Icon" />
       <RootProperty Name="Command" />
-      <RootEvent Name="Click" />
+      <RootProperty Name="Icon" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ToolTipService">
       <RootMethod Name="GetToolTip" />

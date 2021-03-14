@@ -29,10 +29,5 @@ namespace LocalNote
             this.InitializeComponent();
             this.NoteViewModel = new ViewModels.NoteViewModel();
         }
-
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Exit();
-        }
     }
 }
