@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,7 +61,14 @@ namespace LocalNote.Commands
             }
 
             // Exit the application
-            Application.Current.Exit();
+            try
+            {
+                Application.Current.Exit();
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("There's an error while closing the program.");
+            }
         }
 
         /// <summary>

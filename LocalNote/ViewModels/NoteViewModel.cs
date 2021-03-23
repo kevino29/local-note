@@ -221,7 +221,7 @@ namespace LocalNote.ViewModels
         }
 
         /// <summary>
-        /// Fire the PropertyChanged event with the given property name.
+        /// Fires the PropertyChanged event with the given property name.
         /// </summary>
         /// <param name="property"></param>
         public void FirePropertyChanged(string property)
@@ -232,7 +232,7 @@ namespace LocalNote.ViewModels
         /// <summary>
         /// Performs a filter on the notes list based on the filter property.
         /// </summary>
-        public void PerformFilter()
+        private void PerformFilter()
         {
             if (this.filter == null)
             {
@@ -268,10 +268,9 @@ namespace LocalNote.ViewModels
             for (int i = 0; i < result.Count; i++)
             {
                 var resultItem = result[i];
+
                 if (i + 1 > NotesForLV.Count || !NotesForLV[i].Equals(resultItem))
-                {
                     NotesForLV.Insert(i, resultItem);
-                }
             }
         }
 
@@ -293,9 +292,9 @@ namespace LocalNote.ViewModels
         }
 
         /// <summary>
-        /// Loads all the notes' data from file.
+        /// Loads each note's data from file.
         /// </summary>
-        public async void LoadNotes()
+        private async void LoadNotes()
         {
             // Get the folder where the notes are stored
             // Then get all the files within that folder

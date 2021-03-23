@@ -1,0 +1,7 @@
+﻿"C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x64\Release\ilc\in\LocalNote.exe"
+/Lib:"C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x64\Release\ilc\in"
+/Lib:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.native.compiler\2.2.9-rel-29512-01\tools\x64\ilc\lib\Private"
+/WinMD:"C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x64\Release\ilc\in\WinMetadata\Windows.winmd"
+/VSTelemetrySessionSettings:"{\"IsOptedIn\":true,\"HostName\":\"Dev14\",\"AppInsightsInstrumentationKey\":\"f144292e-e3b2-4011-ac90-20e5c03fbce5\",\"AsimovInstrumentationKey\":\"AIF-312cbd79-9dbb-4c48-a7da-3cc2a931cb70\",\"AppId\":1001,\"UserId\":\"df47a07e-c96a-420a-baa4-f4b7a374fc5a\",\"Id\":\"cffdd926-bb6c-4fcf-9781-b9800fcddba0\",\"ProcessStartTime\":637514248021701322}"
+/RdXmlPath:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\2.2.9-rel-29512-01\tools\LibraryXML"
+/RunOnlyPreDR

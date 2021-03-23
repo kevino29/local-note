@@ -1,0 +1,78 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="LocalNote.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LocalNote"
+    xmlns:models="using:LocalNote.Models"
+    xmlns:vm="using:LocalNote.ViewModels"
+    xmlns:commands="using:LocalNote.Commands"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <CollectionViewSource x:ConnectionId='2' x:Name="NotesCollection"                                           />
+    </Page.Resources>
+
+    <Page.TopAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <TextBlock x:ConnectionId='3' x:Name="NoteTitle"                                                                                           Padding="10" />
+            </CommandBar.Content>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:ConnectionId='4' x:Name="About" Label="About"></AppBarButton>
+                <AppBarButton x:ConnectionId='5' x:Name="Exit" Label="Exit"
+                                                                          ></AppBarButton>
+            </CommandBar.SecondaryCommands>
+            <AppBarButton x:ConnectionId='6' Icon="Add" Label="Add"
+                          ToolTipService.ToolTip="Add Note"
+                                                                     ></AppBarButton>
+            <AppBarButton x:ConnectionId='7' Icon="Save" Label="Save"
+                          ToolTipService.ToolTip="Save Note"
+                                                                      ></AppBarButton>
+            <AppBarButton x:ConnectionId='8' Icon="Edit" Label="Edit"
+                          ToolTipService.ToolTip="Edit Note"
+                                                                      ></AppBarButton>
+            <AppBarSeparator/>
+            <AppBarButton x:ConnectionId='9' Icon="Delete" Label="Delete"
+                          ToolTipService.ToolTip="Delete Note"
+                                                                        ></AppBarButton>
+        </CommandBar>
+    </Page.TopAppBar>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="471*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="117*"/>
+            <ColumnDefinition Width="383*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:ConnectionId='10' x:Name="SearchBox" Grid.Row="0" Grid.Column="0"
+                 PlaceholderText="Search notes" FontSize="16"
+                                                                                                       />
+
+        <ListView x:ConnectionId='11' x:Name="notesListView" Grid.Column="0"
+                  ItemsSource="{Binding Source={StaticResource NotesCollection}}"
+                                                                                                                      
+                  Margin="0,5,0,0" Grid.Row="1" >
+            <ListView.ItemTemplate>
+                <DataTemplate                              >
+                    <TextBlock x:ConnectionId='14'                                                                         FontSize="18"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <TextBox x:ConnectionId='12' Grid.RowSpan="2" Grid.Column="1" 
+                                                                                                            
+                 PlaceholderText="Type your note here..."
+                 TextWrapping="Wrap" 
+                 Padding="10"
+                 FontSize="18"
+                                                                                                               />
+    </Grid>
+</Page>
+
