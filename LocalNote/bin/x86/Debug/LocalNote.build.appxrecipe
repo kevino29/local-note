@@ -164,6 +164,9 @@
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\AboutDialog.xbf">
       <PackagePath>Views\AboutDialog.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\DeleteNoteDialog.xbf">
+      <PackagePath>Views\DeleteNoteDialog.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\SaveNoteDialog.xbf">
       <PackagePath>Views\SaveNoteDialog.xbf</PackagePath>
     </AppxPackagedFile>

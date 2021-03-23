@@ -1,5 +1,5 @@
-﻿<ContentDialog
-    x:Class="LocalNote.Views.DeleteNote"
+﻿<ContentDialog x:ConnectionId='1'
+    x:Class="LocalNote.Views.DeleteNoteDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:LocalNote.Views"
@@ -9,8 +9,8 @@
     Title="Delete Note"
     PrimaryButtonText="Delete"
     SecondaryButtonText="Cancel"
-    PrimaryButtonClick="DeleteButtonClick"
-    SecondaryButtonClick="CancelButtonClick">
+                                          
+                                            >
 
     <Grid>
         <TextBlock>
@@ -18,3 +18,4 @@
         </TextBlock>
     </Grid>
 </ContentDialog>
+

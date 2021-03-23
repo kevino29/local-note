@@ -15,6 +15,9 @@ namespace LocalNote.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Private properties
+        /// </summary>
         private ObservableCollection<NoteModel> notes;
         private ObservableCollection<NoteModel> notesForLV;
         private string noteTitle;
@@ -25,6 +28,9 @@ namespace LocalNote.ViewModels
         private NoteModel selectedNote;
         private NoteModel buffer;
 
+        /// <summary>
+        /// Getters and setters
+        /// </summary>
         public ObservableCollection<NoteModel> Notes { get { return notes; } }
         public ObservableCollection<NoteModel> NotesForLV { get { return notesForLV; } }
         public SaveCommand SaveCommand { get; }

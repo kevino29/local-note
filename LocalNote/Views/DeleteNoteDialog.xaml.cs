@@ -17,9 +17,12 @@ using Windows.UI.Xaml.Navigation;
 
 namespace LocalNote.Views
 {
-    public sealed partial class DeleteNote : ContentDialog
+    public sealed partial class DeleteNoteDialog : ContentDialog
     {
-        public DeleteNote()
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public DeleteNoteDialog()
         {
             this.InitializeComponent();
         }

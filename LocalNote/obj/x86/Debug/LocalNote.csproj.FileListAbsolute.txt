@@ -61,7 +61,6 @@ C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Core\LocalNote.exe
 C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\LocalNote.build.appxrecipe
 C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\System.Runtime.dll
 C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Microsoft.UI.Xaml.Markup.winmd
-C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\LocalNote.csprojAssemblyReference.cache
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\App.g.i.cs
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\App.g.cs
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\MainPage.g.i.cs
@@ -103,3 +102,9 @@ C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\AboutDialog.
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\AboutDialog.g.cs
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\AboutDialog.xaml
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\AboutDialog.xbf
+C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\DeleteNoteDialog.xbf
+C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\DeleteNoteDialog.g.i.cs
+C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\DeleteNoteDialog.g.cs
+C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\DeleteNoteDialog.xaml
+C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\DeleteNoteDialog.xbf
+C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\LocalNote.csprojAssemblyReference.cache

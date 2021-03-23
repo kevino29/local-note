@@ -90,6 +90,7 @@
       <RootProperty Name="Children" />
     </RootType>
     <RootType FullName="LocalNote.Views.AboutDialog" />
+    <RootType FullName="LocalNote.Views.DeleteNoteDialog" />
     <RootType FullName="LocalNote.Views.SaveNoteDialog" />
   </Roots.RootTypes>
 </Roots>

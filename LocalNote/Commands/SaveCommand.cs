@@ -40,6 +40,8 @@ namespace LocalNote.Commands
         /// <param name="parameter"></param>
         public async void Execute(object parameter)
         {
+            string saveNoteTitle = noteViewModel.SelectedNote.Title;
+
             // Check if the note has just been created
             if (noteViewModel.SelectedNote.Title == "Untitled Note")
             {
@@ -54,8 +56,11 @@ namespace LocalNote.Commands
                     bool duplicate = false;
                     result = await save.ShowAsync();
 
+                    // Save the title given by the user
+                    saveNoteTitle = save.NoteTitle;
+
                     // Check for empty title
-                    bool empty = string.IsNullOrEmpty(save.NoteTitle);
+                    bool empty = string.IsNullOrEmpty(saveNoteTitle);
 
                     // Check for invalid file name characters
                     bool invalid = save.NoteTitle.Contains("_") ||
@@ -64,7 +69,7 @@ namespace LocalNote.Commands
                     // Check against duplicates
                     foreach (var note in noteViewModel.Notes)
                     {
-                        if (note.Title == save.NoteTitle)
+                        if (note.Title == saveNoteTitle)
                         {
                             duplicate = true;
                             break;
@@ -94,7 +99,7 @@ namespace LocalNote.Commands
                 if (result == ContentDialogResult.Primary)
                 {
                     // Get the new note title from the dialog
-                    noteViewModel.SelectedNote.Title = save.NoteTitle;
+                    noteViewModel.SelectedNote.Title = saveNoteTitle;
                     
                     // Check if the selected note is a buffer
                     // Add it to the notes lists first
@@ -108,7 +113,8 @@ namespace LocalNote.Commands
                     }
 
                     // Update the notes list order base on note titles
-                    noteViewModel.UpdateNotesLists();
+                    // THIS IS BUGGY (FIX THIS LATER)
+                    //noteViewModel.UpdateNotesLists();
 
                     // Notify that the selected note and the selected note's title changed
                     noteViewModel.FirePropertyChanged("SelectedNote");
@@ -125,7 +131,7 @@ namespace LocalNote.Commands
             ContentDialog dialog = new ContentDialog()
             {
                 Title = "Saved successfully",
-                Content = "'" + noteViewModel.SelectedNote.Title + "'" + " has been saved.",
+                Content = "'" + saveNoteTitle + "'" + " has been saved.",
                 PrimaryButtonText = "OK",
             };
             await dialog.ShowAsync();

@@ -32,5 +32,6 @@ App.xbf
 LocalNote.xr.xml
 MainPage.xbf
 Views\AboutDialog.xbf
+Views\DeleteNoteDialog.xbf
 Views\SaveNoteDialog.xbf
 Properties\Default.rd.xml
