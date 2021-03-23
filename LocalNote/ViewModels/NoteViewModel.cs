@@ -32,6 +32,7 @@ namespace LocalNote.ViewModels
         public EditCommand EditCommand { get; }
         public DeleteCommand DeleteCommand { get; }
         public ExitCommand ExitCommand { get; }
+        public AboutCommand AboutCommand { get; }
 
         /// <summary>
         /// Constructor
@@ -45,6 +46,7 @@ namespace LocalNote.ViewModels
             EditCommand = new EditCommand(this);
             DeleteCommand = new DeleteCommand(this);
             ExitCommand = new ExitCommand(this);
+            AboutCommand = new AboutCommand();
             Buffer = new NoteModel();
             SelectedNote = Buffer;
             EditMode = false;

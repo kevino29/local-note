@@ -21,7 +21,8 @@
                 <TextBlock x:Name="NoteTitle" Text="{x:Bind NoteViewModel.NoteTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="10" />
             </CommandBar.Content>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="About" Label="About"></AppBarButton>
+                <AppBarButton x:Name="About" Label="About"
+                              Command="{x:Bind NoteViewModel.AboutCommand}"></AppBarButton>
                 <AppBarButton x:Name="Exit" Label="Exit"
                               Command="{x:Bind NoteViewModel.ExitCommand}"></AppBarButton>
             </CommandBar.SecondaryCommands>

@@ -25,6 +25,8 @@
       <RootProperty Name="Text" />
       <RootProperty Name="Padding" />
       <RootProperty Name="FontSize" />
+      <RootProperty Name="Inlines" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="Label" />
@@ -78,8 +80,8 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ContentDialog">
       <RootProperty Name="Title" />
       <RootProperty Name="PrimaryButtonText" />
-      <RootProperty Name="SecondaryButtonText" />
       <RootProperty Name="Content" />
+      <RootProperty Name="SecondaryButtonText" />
       <RootEvent Name="PrimaryButtonClick" />
       <RootEvent Name="SecondaryButtonClick" />
     </RootType>
@@ -87,6 +89,7 @@
       <RootProperty Name="Orientation" />
       <RootProperty Name="Children" />
     </RootType>
+    <RootType FullName="LocalNote.Views.AboutDialog" />
     <RootType FullName="LocalNote.Views.SaveNoteDialog" />
   </Roots.RootTypes>
 </Roots>
