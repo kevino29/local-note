@@ -1,0 +1,2 @@
+C:\Users\varax\source\repos\LocalNote\LocalNote\LocalNote.csproj;x86
+C:\Users\varax\source\repos\LocalNote\LocalNoteUnitTests\LocalNoteUnitTests.csproj;x86

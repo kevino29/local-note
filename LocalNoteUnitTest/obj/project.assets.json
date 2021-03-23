@@ -544,6 +544,19 @@
         "runtime": {
           "lib/win8/_._": {}
         }
+      },
+      "LocalNote/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.17763",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+        },
+        "compile": {
+          "bin/placeholder/LocalNote.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LocalNote.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.17763/win10-arm": {
@@ -1350,6 +1363,19 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "LocalNote/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.17763",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+        },
+        "compile": {
+          "bin/placeholder/LocalNote.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LocalNote.dll": {}
         }
       }
     },
@@ -2201,6 +2227,19 @@
         "runtime": {
           "lib/win8/_._": {}
         }
+      },
+      "LocalNote/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.17763",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+        },
+        "compile": {
+          "bin/placeholder/LocalNote.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LocalNote.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.17763/win10-arm64-aot": {
@@ -3051,6 +3090,19 @@
         "runtime": {
           "lib/win8/_._": {}
         }
+      },
+      "LocalNote/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.17763",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+        },
+        "compile": {
+          "bin/placeholder/LocalNote.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LocalNote.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.17763/win10-x64": {
@@ -3857,6 +3909,19 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "LocalNote/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.17763",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+        },
+        "compile": {
+          "bin/placeholder/LocalNote.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LocalNote.dll": {}
         }
       }
     },
@@ -4708,6 +4773,19 @@
         "runtime": {
           "lib/win8/_._": {}
         }
+      },
+      "LocalNote/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.17763",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+        },
+        "compile": {
+          "bin/placeholder/LocalNote.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LocalNote.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.17763/win10-x86": {
@@ -5514,6 +5592,19 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "LocalNote/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.17763",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+        },
+        "compile": {
+          "bin/placeholder/LocalNote.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LocalNote.dll": {}
         }
       }
     },
@@ -6364,6 +6455,19 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "LocalNote/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.17763",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+        },
+        "compile": {
+          "bin/placeholder/LocalNote.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LocalNote.dll": {}
         }
       }
     }
@@ -12227,10 +12331,16 @@
         "system.threading.tasks.4.0.11.nupkg.sha512",
         "system.threading.tasks.nuspec"
       ]
+    },
+    "LocalNote/1.0.0": {
+      "type": "project",
+      "path": "../LocalNote/LocalNote.csproj",
+      "msbuildProject": "../LocalNote/LocalNote.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.17763": [
+      "LocalNote >= 1.0.0",
       "MSTest.TestAdapter >= 2.0.0",
       "MSTest.TestFramework >= 2.0.0",
       "Microsoft.NET.Test.Sdk >= 16.6.1",
@@ -12270,7 +12380,11 @@
       },
       "frameworks": {
         "uap10.0.17763": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\varax\\source\\repos\\LocalNote\\LocalNote\\LocalNote.csproj": {
+              "projectPath": "C:\\Users\\varax\\source\\repos\\LocalNote\\LocalNote\\LocalNote.csproj"
+            }
+          }
         }
       }
     },
