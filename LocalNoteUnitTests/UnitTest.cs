@@ -11,7 +11,7 @@ namespace LocalNoteUnitTests
     public class UnitTest1
     {
         private static NoteViewModel vm = new NoteViewModel();
-        private static SaveCommand save = new SaveCommand(vm);
+        private SaveCommand save = new SaveCommand(vm);
 
         [UITestMethod]
         public void Test_SaveCommand_IsFileNameEmpty_When_FileNameIsEmpty()
