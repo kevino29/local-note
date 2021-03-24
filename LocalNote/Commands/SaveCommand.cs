@@ -150,8 +150,15 @@ namespace LocalNote.Commands
         public bool IsFileNameInvalid(string fileName)
         {
             // Check for invalid file name characters
-            return fileName.Contains("_") ||
-                fileName.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0;
+            try
+            {
+                return fileName.Contains("_") ||
+                    fileName.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0;
+            }
+            catch (NullReferenceException)
+            {
+                throw new NullReferenceException();
+            }
         }
 
         private void AfterSavingDefaults()
