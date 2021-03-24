@@ -107,3 +107,4 @@ C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\DeleteNoteDi
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\DeleteNoteDialog.g.cs
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\DeleteNoteDialog.xaml
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\DeleteNoteDialog.xbf
+C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\LocalNote.csprojAssemblyReference.cache

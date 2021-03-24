@@ -53,28 +53,19 @@ namespace LocalNote.Commands
                 // a duplicate, invalid, or empty title for a note
                 while (true)
                 {
-                    bool duplicate = false;
                     result = await save.ShowAsync();
 
                     // Save the title given by the user
                     saveNoteTitle = save.NoteTitle;
 
-                    // Check for empty title
-                    bool empty = string.IsNullOrEmpty(saveNoteTitle);
+                    // Check for empty error
+                    bool empty = IsFileNameEmpty(saveNoteTitle);
 
-                    // Check for invalid file name characters
-                    bool invalid = save.NoteTitle.Contains("_") ||
-                        save.NoteTitle.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0;
+                    // Check for invalid error
+                    bool invalid = IsFileNameInvalid(saveNoteTitle);
 
-                    // Check against duplicates
-                    foreach (var note in noteViewModel.Notes)
-                    {
-                        if (note.Title == saveNoteTitle)
-                        {
-                            duplicate = true;
-                            break;
-                        }
-                    }
+                    // Check for duplicate error
+                    bool duplicate = IsFileNameDuplicate(saveNoteTitle);
 
                     // Look for an error
                     string content;
@@ -136,8 +127,35 @@ namespace LocalNote.Commands
             };
             await dialog.ShowAsync();
 
-            // After saving defaults ...
+            // After saving defaults...
+            AfterSavingDefaults();
+        }
 
+        public bool IsFileNameEmpty(string fileName)
+        {
+            // Check for empty file name
+            return string.IsNullOrEmpty(fileName);
+        }
+
+        public bool IsFileNameDuplicate(string fileName)
+        {
+            // Check against duplicates
+            foreach (var note in noteViewModel.Notes)
+            {
+                if (note.Title == fileName) return true;
+            }
+            return false;
+        }
+
+        public bool IsFileNameInvalid(string fileName)
+        {
+            // Check for invalid file name characters
+            return fileName.Contains("_") ||
+                fileName.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0;
+        }
+
+        private void AfterSavingDefaults()
+        {
             // Turn off need saving
             this.noteViewModel.SelectedNote.NeedSaving = false;
             this.noteViewModel.SelectedNote.FirePropertyChanged("NeedSaving");
