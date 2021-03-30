@@ -104,7 +104,7 @@ namespace LocalNote.Commands
                     }
 
                     // Update the notes list order base on note titles
-                    // THIS IS BUGGY (FIX THIS LATER)
+                    // THIS IS BUGGY (OPTIONAL FIX)
                     //noteViewModel.UpdateNotesLists();
 
                     // Notify that the selected note and the selected note's title changed
