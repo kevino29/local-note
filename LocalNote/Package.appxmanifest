@@ -15,7 +15,7 @@
 
   <Properties>
     <DisplayName>LocalNote</DisplayName>
-    <PublisherDisplayName>Kevin</PublisherDisplayName>
+    <PublisherDisplayName>Kevin Orenday</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -35,7 +35,7 @@
         DisplayName="LocalNote"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="LocalNote"
+        Description="A rich text-editor built using the UWP Framework."
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

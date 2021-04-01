@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     "UAP,Version=v10.0.17763": {
+      "Microsoft.Data.Sqlite.Core/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.9-rel-29512-01": {
         "type": "package",
         "dependencies": {
@@ -358,6 +370,43 @@
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
         }
       },
+      "SQLitePCLRaw.bundle_winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.provider.winsqlite3": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        }
+      },
       "System.ComponentModel.Primitives/4.1.0": {
         "type": "package",
         "compile": {
@@ -407,6 +456,18 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
       "System.Reflection/4.1.0": {
@@ -466,6 +527,15 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
       "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
@@ -549,7 +619,9 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.17763",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+          "Microsoft.Data.Sqlite.Core": "5.0.4",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.12",
+          "SQLitePCLRaw.bundle_winsqlite3": "2.0.4"
         },
         "compile": {
           "bin/placeholder/LocalNote.dll": {}
@@ -560,6 +632,18 @@
       }
     },
     "UAP,Version=v10.0.17763/win10-arm": {
+      "Microsoft.Data.Sqlite.Core/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.9-rel-29512-01": {
         "type": "package",
         "dependencies": {
@@ -1179,6 +1263,43 @@
           "runtimes/win/lib/netstandard1.0/System.Private.Uri.dll": {}
         }
       },
+      "SQLitePCLRaw.bundle_winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.provider.winsqlite3": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        }
+      },
       "System.ComponentModel.Primitives/4.1.0": {
         "type": "package",
         "compile": {
@@ -1230,6 +1351,18 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
       "System.Private.Uri/4.0.1": {
@@ -1306,6 +1439,15 @@
           "lib/win8/_._": {}
         }
       },
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
       "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -1369,7 +1511,9 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.17763",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+          "Microsoft.Data.Sqlite.Core": "5.0.4",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.12",
+          "SQLitePCLRaw.bundle_winsqlite3": "2.0.4"
         },
         "compile": {
           "bin/placeholder/LocalNote.dll": {}
@@ -1380,6 +1524,18 @@
       }
     },
     "UAP,Version=v10.0.17763/win10-arm-aot": {
+      "Microsoft.Data.Sqlite.Core/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.9-rel-29512-01": {
         "type": "package",
         "dependencies": {
@@ -2026,6 +2182,43 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "SQLitePCLRaw.bundle_winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.provider.winsqlite3": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        }
+      },
       "System.ComponentModel.Primitives/4.1.0": {
         "type": "package",
         "compile": {
@@ -2077,6 +2270,18 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
       "System.Private.Uri/4.0.1": {
@@ -2151,6 +2356,15 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
       "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
@@ -2232,7 +2446,9 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.17763",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+          "Microsoft.Data.Sqlite.Core": "5.0.4",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.12",
+          "SQLitePCLRaw.bundle_winsqlite3": "2.0.4"
         },
         "compile": {
           "bin/placeholder/LocalNote.dll": {}
@@ -2243,6 +2459,18 @@
       }
     },
     "UAP,Version=v10.0.17763/win10-arm64-aot": {
+      "Microsoft.Data.Sqlite.Core/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.9-rel-29512-01": {
         "type": "package",
         "dependencies": {
@@ -2889,6 +3117,43 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "SQLitePCLRaw.bundle_winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.provider.winsqlite3": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        }
+      },
       "System.ComponentModel.Primitives/4.1.0": {
         "type": "package",
         "compile": {
@@ -2940,6 +3205,18 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
       "System.Private.Uri/4.0.1": {
@@ -3014,6 +3291,15 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
       "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
@@ -3095,7 +3381,9 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.17763",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+          "Microsoft.Data.Sqlite.Core": "5.0.4",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.12",
+          "SQLitePCLRaw.bundle_winsqlite3": "2.0.4"
         },
         "compile": {
           "bin/placeholder/LocalNote.dll": {}
@@ -3106,6 +3394,18 @@
       }
     },
     "UAP,Version=v10.0.17763/win10-x64": {
+      "Microsoft.Data.Sqlite.Core/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.9-rel-29512-01": {
         "type": "package",
         "dependencies": {
@@ -3725,6 +4025,43 @@
           "runtimes/win/lib/netstandard1.0/System.Private.Uri.dll": {}
         }
       },
+      "SQLitePCLRaw.bundle_winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.provider.winsqlite3": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        }
+      },
       "System.ComponentModel.Primitives/4.1.0": {
         "type": "package",
         "compile": {
@@ -3776,6 +4113,18 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
       "System.Private.Uri/4.0.1": {
@@ -3852,6 +4201,15 @@
           "lib/win8/_._": {}
         }
       },
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
       "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -3915,7 +4273,9 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.17763",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+          "Microsoft.Data.Sqlite.Core": "5.0.4",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.12",
+          "SQLitePCLRaw.bundle_winsqlite3": "2.0.4"
         },
         "compile": {
           "bin/placeholder/LocalNote.dll": {}
@@ -3926,6 +4286,18 @@
       }
     },
     "UAP,Version=v10.0.17763/win10-x64-aot": {
+      "Microsoft.Data.Sqlite.Core/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.9-rel-29512-01": {
         "type": "package",
         "dependencies": {
@@ -4572,6 +4944,43 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "SQLitePCLRaw.bundle_winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.provider.winsqlite3": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        }
+      },
       "System.ComponentModel.Primitives/4.1.0": {
         "type": "package",
         "compile": {
@@ -4623,6 +5032,18 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
       "System.Private.Uri/4.0.1": {
@@ -4697,6 +5118,15 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
       "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
@@ -4778,7 +5208,9 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.17763",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+          "Microsoft.Data.Sqlite.Core": "5.0.4",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.12",
+          "SQLitePCLRaw.bundle_winsqlite3": "2.0.4"
         },
         "compile": {
           "bin/placeholder/LocalNote.dll": {}
@@ -4789,6 +5221,18 @@
       }
     },
     "UAP,Version=v10.0.17763/win10-x86": {
+      "Microsoft.Data.Sqlite.Core/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.9-rel-29512-01": {
         "type": "package",
         "dependencies": {
@@ -5408,6 +5852,43 @@
           "runtimes/win/lib/netstandard1.0/System.Private.Uri.dll": {}
         }
       },
+      "SQLitePCLRaw.bundle_winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.provider.winsqlite3": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        }
+      },
       "System.ComponentModel.Primitives/4.1.0": {
         "type": "package",
         "compile": {
@@ -5459,6 +5940,18 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
       "System.Private.Uri/4.0.1": {
@@ -5535,6 +6028,15 @@
           "lib/win8/_._": {}
         }
       },
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
       "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -5598,7 +6100,9 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.17763",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+          "Microsoft.Data.Sqlite.Core": "5.0.4",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.12",
+          "SQLitePCLRaw.bundle_winsqlite3": "2.0.4"
         },
         "compile": {
           "bin/placeholder/LocalNote.dll": {}
@@ -5609,6 +6113,18 @@
       }
     },
     "UAP,Version=v10.0.17763/win10-x86-aot": {
+      "Microsoft.Data.Sqlite.Core/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.9-rel-29512-01": {
         "type": "package",
         "dependencies": {
@@ -6255,6 +6771,43 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "SQLitePCLRaw.bundle_winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.provider.winsqlite3": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.winsqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll": {}
+        }
+      },
       "System.ComponentModel.Primitives/4.1.0": {
         "type": "package",
         "compile": {
@@ -6306,6 +6859,18 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
       "System.Private.Uri/4.0.1": {
@@ -6380,6 +6945,15 @@
         },
         "runtime": {
           "lib/win8/_._": {}
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
       "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
@@ -6461,7 +7035,9 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.17763",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.11"
+          "Microsoft.Data.Sqlite.Core": "5.0.4",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.12",
+          "SQLitePCLRaw.bundle_winsqlite3": "2.0.4"
         },
         "compile": {
           "bin/placeholder/LocalNote.dll": {}
@@ -6473,6 +7049,20 @@
     }
   },
   "libraries": {
+    "Microsoft.Data.Sqlite.Core/5.0.4": {
+      "sha512": "BhAeNgg0Wz/TIXhl/I1mXppCmKiLDE53nthK388CT5+GJB64QgvulvpoWFLx14hZgFSdzGxieVVQZPlZqHA2HA==",
+      "type": "package",
+      "path": "microsoft.data.sqlite.core/5.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netstandard2.0/Microsoft.Data.Sqlite.dll",
+        "lib/netstandard2.0/Microsoft.Data.Sqlite.xml",
+        "microsoft.data.sqlite.core.5.0.4.nupkg.sha512",
+        "microsoft.data.sqlite.core.nuspec"
+      ]
+    },
     "Microsoft.Net.Native.Compiler/2.2.9-rel-29512-01": {
       "sha512": "YcCy05STvergR64Mnq/1jo9ptgzzat7AcNB5PJPvzvrmaOEp6VraylZDAWdvnboPrfJbQyQQiDYoq8QQJA4ZXA==",
       "type": "package",
@@ -11493,6 +12083,42 @@
         "runtimes/win/lib/netstandard1.0/System.Private.Uri.dll"
       ]
     },
+    "SQLitePCLRaw.bundle_winsqlite3/2.0.4": {
+      "sha512": "8AU/bIPizsp7hN1l9ZPpK4e/X0wWNlnP5fIfPOcc2IF7j3bSJJugzQI1vZ82HYa9Tw7yjqPyj0kZ2zhYIqKjqg==",
+      "type": "package",
+      "path": "sqlitepclraw.bundle_winsqlite3/2.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll",
+        "sqlitepclraw.bundle_winsqlite3.2.0.4.nupkg.sha512",
+        "sqlitepclraw.bundle_winsqlite3.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.core/2.0.4": {
+      "sha512": "4XlDZpDAsboMD6qZQcz9AaKblKDUTVHF+8f3lvbP7QjoqSRr2Xc0Lm34IK2pjRIYnyFLhI3yOJ5YWfOiCid2yg==",
+      "type": "package",
+      "path": "sqlitepclraw.core/2.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SQLitePCLRaw.core.dll",
+        "sqlitepclraw.core.2.0.4.nupkg.sha512",
+        "sqlitepclraw.core.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.provider.winsqlite3/2.0.4": {
+      "sha512": "a9b5yT5EB9JIgc03SI3Ut1tvUml87NFyGU+4SAl59q4u9akwLMVNVZXGPLa+aaGUwVzxoVNPh3SPUFds7zk4fQ==",
+      "type": "package",
+      "path": "sqlitepclraw.provider.winsqlite3/2.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SQLitePCLRaw.provider.winsqlite3.dll",
+        "sqlitepclraw.provider.winsqlite3.2.0.4.nupkg.sha512",
+        "sqlitepclraw.provider.winsqlite3.nuspec"
+      ]
+    },
     "System.ComponentModel.Primitives/4.1.0": {
       "sha512": "sc/7eVCdxPrp3ljpgTKVaQGUXiW05phNWvtv/m2kocXqrUQvTVWKou1Edas2aDjTThLPZOxPYIGNb/HN0QjURg==",
       "type": "package",
@@ -11730,6 +12356,27 @@
         "ref/xamarinwatchos10/_._",
         "system.io.4.1.0.nupkg.sha512",
         "system.io.nuspec"
+      ]
+    },
+    "System.Memory/4.5.3": {
+      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "type": "package",
+      "path": "system.memory/4.5.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.3.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Private.Uri/4.0.1": {
@@ -12026,6 +12673,31 @@
         "ref/xamarinwatchos10/_._",
         "system.runtime.4.1.0.nupkg.sha512",
         "system.runtime.nuspec"
+      ]
+    },
+    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "sha512": "wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
+      "type": "package",
+      "path": "system.runtime.compilerservices.unsafe/4.5.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
@@ -12438,5 +13110,24 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Microsoft.NETCore.UniversalWindowsPlatform from 6.2.12 to 6.2.11. Reference the package directly from the project to select a different version. \r\n LocalNoteUnitTests -> LocalNote -> Microsoft.NETCore.UniversalWindowsPlatform (>= 6.2.12) \r\n LocalNoteUnitTests -> Microsoft.NETCore.UniversalWindowsPlatform (>= 6.2.11)",
+      "libraryId": "Microsoft.NETCore.UniversalWindowsPlatform",
+      "targetGraphs": [
+        "UAP,Version=v10.0.17763",
+        "UAP,Version=v10.0.17763/win10-arm",
+        "UAP,Version=v10.0.17763/win10-arm-aot",
+        "UAP,Version=v10.0.17763/win10-arm64-aot",
+        "UAP,Version=v10.0.17763/win10-x64",
+        "UAP,Version=v10.0.17763/win10-x64-aot",
+        "UAP,Version=v10.0.17763/win10-x86",
+        "UAP,Version=v10.0.17763/win10-x86-aot"
+      ]
+    }
+  ]
 }

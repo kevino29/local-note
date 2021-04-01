@@ -116,7 +116,10 @@ namespace LocalNote.Commands
             }
 
             // Save the note data to file
-            Repositories.NotesRepo.SaveNoteToFile(noteViewModel.SelectedNote);
+            //Repositories.NotesRepo.SaveNoteToFile(noteViewModel.SelectedNote);
+
+            // Save the note to the database
+            Repositories.DatabaseRepo.AddNote(noteViewModel.SelectedNote);
 
             // Show a dialog that the save was successful
             ContentDialog dialog = new ContentDialog()
@@ -137,8 +140,10 @@ namespace LocalNote.Commands
             return string.IsNullOrEmpty(fileName);
         }
 
-        public bool IsFileNameDuplicate(string fileName)
+        public bool IsFileNameDuplicate(string fileName) 
         {
+            if (IsFileNameEmpty(fileName)) return false;
+            
             // Check against duplicates
             foreach (var note in noteViewModel.Notes)
             {
@@ -149,6 +154,8 @@ namespace LocalNote.Commands
 
         public bool IsFileNameInvalid(string fileName)
         {
+            if (IsFileNameEmpty(fileName)) return false;
+
             // Check for invalid file name characters
             try
             {

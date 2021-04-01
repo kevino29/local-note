@@ -126,9 +126,17 @@
       "frameworks": {
         "uap10.0.17763": {
           "dependencies": {
+            "Microsoft.Data.Sqlite.Core": {
+              "target": "Package",
+              "version": "[5.0.4, )"
+            },
             "Microsoft.NETCore.UniversalWindowsPlatform": {
               "target": "Package",
-              "version": "[6.2.11, )"
+              "version": "[6.2.12, )"
+            },
+            "SQLitePCLRaw.bundle_winsqlite3": {
+              "target": "Package",
+              "version": "[2.0.4, )"
             }
           },
           "imports": [

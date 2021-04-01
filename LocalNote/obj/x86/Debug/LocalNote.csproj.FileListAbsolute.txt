@@ -107,3 +107,10 @@ C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\DeleteNoteDi
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\DeleteNoteDialog.g.cs
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\DeleteNoteDialog.xaml
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Views\DeleteNoteDialog.xbf
+C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\LocalNote.csprojAssemblyReference.cache
+C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Microsoft.Data.Sqlite.dll
+C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\SQLitePCLRaw.core.dll
+C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\Microsoft.Data.Sqlite\en-US\Microsoft.Data.Sqlite.Properties.Resources.resw
+C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\SQLitePCLRaw.batteries_v2.dll
+C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\SQLitePCLRaw.provider.winsqlite3.dll

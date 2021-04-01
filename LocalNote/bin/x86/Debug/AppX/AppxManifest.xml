@@ -11,13 +11,13 @@
   <mp:PhoneIdentity PhoneProductId="17514a28-b8af-492b-b0db-461b8d6b0889" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>LocalNote</DisplayName>
-    <PublisherDisplayName>Kevin</PublisherDisplayName>
+    <PublisherDisplayName>Kevin Orenday</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
     <PackageDependency Name="Microsoft.VCLibs.140.00.Debug" MinVersion="14.0.29231.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
-    <PackageDependency Name="Microsoft.NET.CoreRuntime.2.2" MinVersion="2.2.27902.3" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+    <PackageDependency Name="Microsoft.NET.CoreRuntime.2.2" MinVersion="2.2.29713.2" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
     <PackageDependency Name="Microsoft.NET.CoreFramework.Debug.2.2" MinVersion="2.2.29301.2" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
   </Dependencies>
   <Resources>
@@ -25,7 +25,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="LocalNote.exe" EntryPoint="LocalNote.App">
-      <uap:VisualElements DisplayName="LocalNote" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="LocalNote" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="LocalNote" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="A rich text-editor built using the UWP Framework." BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>

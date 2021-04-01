@@ -58,7 +58,8 @@ namespace LocalNote.ViewModels
             EditMode = false;
             ReadOnly = true;
 
-            LoadNotes();
+            //LoadNotes();
+            LoadNotesFromDatabase();
         }
 
         /// <summary>
@@ -316,6 +317,11 @@ namespace LocalNote.ViewModels
                 notes.Add(new NoteModel(file.DisplayName.Replace("_", " "), content));
                 notesForLV.Add(notes.Last());
             }
+        }
+
+        private async void LoadNotesFromDatabase() {
+            notes = await Repositories.DatabaseRepo.GetNotes();
+            notesForLV = await Repositories.DatabaseRepo.GetNotes();
         }
     }
 }
