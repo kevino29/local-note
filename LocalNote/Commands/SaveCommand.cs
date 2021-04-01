@@ -77,6 +77,9 @@ namespace LocalNote.Commands
                         content = "The title contains invalid character(s). Please enter a new title.";
                     else break; // Skip, if there are none
 
+                    // Don't show an error if the user clicks Cancel
+                    if (result == ContentDialogResult.Secondary) break;
+
                     // Show a dialog that there is an error
                     ContentDialog error = new ContentDialog()
                     {

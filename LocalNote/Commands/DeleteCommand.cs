@@ -71,7 +71,10 @@ namespace LocalNote.Commands
                 this.noteViewModel.FirePropertyChanged("SelectedNote");
 
                 // Delete the data file in the repo
-                Repositories.NotesRepo.DeleteNoteFile(noteToDelete);
+                //Repositories.NotesRepo.DeleteNoteFile(noteToDelete);
+
+                // Delete the record from the database
+                Repositories.DatabaseRepo.DeleteNote(noteToDelete);
             }
         }
 

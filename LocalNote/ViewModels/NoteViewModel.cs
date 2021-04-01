@@ -53,13 +53,13 @@ namespace LocalNote.ViewModels
             DeleteCommand = new DeleteCommand(this);
             ExitCommand = new ExitCommand(this);
             AboutCommand = new AboutCommand();
-            Buffer = new NoteModel();
-            SelectedNote = Buffer;
+            //Buffer = new NoteModel();
+            //SelectedNote = Buffer;
             EditMode = false;
             ReadOnly = true;
 
-            //LoadNotes();
-            LoadNotesFromDatabase();
+            LoadNotes();
+            //LoadNotesFromDatabase();
         }
 
         /// <summary>
@@ -313,6 +313,9 @@ namespace LocalNote.ViewModels
             // Read each file
             foreach(var file in fileList)
             {
+                // Skip the database file
+                if (file.FileType == ".db") continue;
+
                 string content = await FileIO.ReadTextAsync(file);
                 notes.Add(new NoteModel(file.DisplayName.Replace("_", " "), content));
                 notesForLV.Add(notes.Last());
@@ -321,7 +324,12 @@ namespace LocalNote.ViewModels
 
         private async void LoadNotesFromDatabase() {
             notes = await Repositories.DatabaseRepo.GetNotes();
-            notesForLV = await Repositories.DatabaseRepo.GetNotes();
+
+            foreach(var note in notes) {
+                notesForLV.Add(note);
+            }
+            SelectedNote = Buffer;
+            FirePropertyChanged("SelectedNote");
         }
     }
 }

@@ -45,11 +45,11 @@
           "dependencies": {
             "MSTest.TestAdapter": {
               "target": "Package",
-              "version": "[2.0.0, )"
+              "version": "[2.2.3, )"
             },
             "MSTest.TestFramework": {
               "target": "Package",
-              "version": "[2.0.0, )"
+              "version": "[2.2.3, )"
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
@@ -57,7 +57,7 @@
             },
             "Microsoft.NETCore.UniversalWindowsPlatform": {
               "target": "Package",
-              "version": "[6.2.11, )"
+              "version": "[6.2.12, )"
             }
           },
           "imports": [
