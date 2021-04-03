@@ -11,7 +11,7 @@
   <mp:PhoneIdentity PhoneProductId="17514a28-b8af-492b-b0db-461b8d6b0889" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>LocalNote</DisplayName>
-    <PublisherDisplayName>Kevin Orenday</PublisherDisplayName>
+    <PublisherDisplayName>ConcernedKevin Ltd.</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>

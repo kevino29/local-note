@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>64DD5B65D73E395555B903FB8FF8ACD2F78456EAF7E44DD20B32BA52CBDA0153</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>B2ADE802052231F5CC3ACB17F182965920991D7E9A25D485735577BCB1769FA2</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>17514a28-b8af-492b-b0db-461b8d6b0889_1.0.0.0_x86__zkzqb6kcb8758</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>17514a28-b8af-492b-b0db-461b8d6b0889_zkzqb6kcb8758!App</RegisteredUserModeAppID>
     <RegisteredPackageID>17514a28-b8af-492b-b0db-461b8d6b0889</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-03T21:19:27.360</Modified>
+      <Modified>2021-04-03T22:16:41.148</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\LocalNote.exe">
       <PackagePath>entrypoint\LocalNote.exe</PackagePath>
-      <Modified>2021-04-03T21:19:26.774</Modified>
+      <Modified>2021-04-03T22:16:40.127</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\microsoft.data.sqlite.core\5.0.4\lib\netstandard2.0\Microsoft.Data.Sqlite.dll">
       <PackagePath>Microsoft.Data.Sqlite.dll</PackagePath>
@@ -216,31 +216,31 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\LocalNote.xr.xml">
       <PackagePath>LocalNote.xr.xml</PackagePath>
-      <Modified>2021-04-03T19:26:49.413</Modified>
+      <Modified>2021-04-03T21:48:33.129</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-04-03T21:19:26.675</Modified>
+      <Modified>2021-04-03T22:16:39.996</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\AboutPage.xbf">
       <PackagePath>AboutPage.xbf</PackagePath>
-      <Modified>2021-04-03T21:19:26.675</Modified>
+      <Modified>2021-04-03T22:16:39.996</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-04-03T21:19:26.675</Modified>
+      <Modified>2021-04-03T22:16:39.996</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\AboutDialog.xbf">
       <PackagePath>Views\AboutDialog.xbf</PackagePath>
-      <Modified>2021-04-03T21:19:26.675</Modified>
+      <Modified>2021-04-03T22:16:39.996</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\DeleteNoteDialog.xbf">
       <PackagePath>Views\DeleteNoteDialog.xbf</PackagePath>
-      <Modified>2021-04-03T21:19:26.675</Modified>
+      <Modified>2021-04-03T22:16:39.996</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\SaveNoteDialog.xbf">
       <PackagePath>Views\SaveNoteDialog.xbf</PackagePath>
-      <Modified>2021-04-03T21:19:26.675</Modified>
+      <Modified>2021-04-03T22:16:39.996</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -248,11 +248,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-04-03T19:26:50.060</Modified>
+      <Modified>2021-04-03T21:50:09.552</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Core\LocalNote.exe">
       <PackagePath>LocalNote.exe</PackagePath>
-      <Modified>2021-04-03T21:19:27.354</Modified>
+      <Modified>2021-04-03T22:16:41.116</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
