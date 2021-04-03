@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,12 @@ namespace LocalNote {
         public MainPage() {
             this.InitializeComponent();
             this.NoteViewModel = new ViewModels.NoteViewModel();
+        }
+
+        private void Editor_TextChanged(object sender, RoutedEventArgs e) {
+            editor.Document.GetText(Windows.UI.Text.TextGetOptions.FormatRtf, out string text);
+            NoteViewModel.NoteContent = text;
+            Debug.WriteLine(text);
         }
     }
 }

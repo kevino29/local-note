@@ -59,10 +59,11 @@
                  PlaceholderText="Search notes" FontSize="16"
                                                                                                        />
 
-        <ListView x:ConnectionId='12' x:Name="notesListView" Grid.Column="0"
-                  ItemsSource="{Binding Source={StaticResource NotesCollection}}"
-                                                                                                                      
-                  Margin="0,5,0,0" Grid.Row="1" >
+        <ListView x:ConnectionId='12' 
+            x:Name="notesListView" Grid.Column="0"
+            ItemsSource="{Binding Source={StaticResource NotesCollection}}"
+                                                                                                                
+            Margin="0,5,0,0" Grid.Row="1" >
             <ListView.ItemTemplate>
                 <DataTemplate                              >
                     <TextBlock x:ConnectionId='15'                                                                         FontSize="18"/>
@@ -70,13 +71,15 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <TextBox x:ConnectionId='13' Grid.RowSpan="2" Grid.Column="1" 
-                                                                                                            
-                 PlaceholderText="Type your note here..."
-                 TextWrapping="Wrap" 
-                 Padding="10"
-                 FontSize="18"
-                                                                                                               />
+        <RichEditBox x:ConnectionId='13' 
+            x:Name="editor"
+            Grid.RowSpan="2" Grid.Column="1"
+            PlaceholderText="Type your note here..."
+            TextWrapping="Wrap" 
+            Padding="10"
+            FontSize="18"
+                                                                                                          
+                                            />
     </Grid>
 </Page>
 

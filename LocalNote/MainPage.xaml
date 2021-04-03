@@ -59,10 +59,11 @@
                  PlaceholderText="Search notes" FontSize="16"
                  Text="{x:Bind NoteViewModel.Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <ListView x:Name="notesListView" Grid.Column="0"
-                  ItemsSource="{Binding Source={StaticResource NotesCollection}}"
-                  SelectedItem="{x:Bind NoteViewModel.SelectedNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                  Margin="0,5,0,0" Grid.Row="1" >
+        <ListView 
+            x:Name="notesListView" Grid.Column="0"
+            ItemsSource="{Binding Source={StaticResource NotesCollection}}"
+            SelectedItem="{x:Bind NoteViewModel.SelectedNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            Margin="0,5,0,0" Grid.Row="1" >
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models:NoteModel">
                     <TextBlock Text="{x:Bind Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="18"/>
@@ -70,12 +71,14 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <TextBox Grid.RowSpan="2" Grid.Column="1" 
-                 Text="{x:Bind NoteViewModel.NoteContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 PlaceholderText="Type your note here..."
-                 TextWrapping="Wrap" 
-                 Padding="10"
-                 FontSize="18"
-                 IsReadOnly="{x:Bind NoteViewModel.ReadOnly, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <RichEditBox 
+            x:Name="editor"
+            Grid.RowSpan="2" Grid.Column="1"
+            PlaceholderText="Type your note here..."
+            TextWrapping="Wrap" 
+            Padding="10"
+            FontSize="18"
+            IsReadOnly="{x:Bind NoteViewModel.ReadOnly, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            TextChanged="Editor_TextChanged"/>
     </Grid>
 </Page>
