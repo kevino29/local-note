@@ -50,8 +50,6 @@ namespace LocalNote.ViewModels {
             DeleteCommand = new DeleteCommand(this);
             ExitCommand = new ExitCommand(this);
             AboutCommand = new AboutCommand();
-            //Buffer = new NoteModel();
-            //SelectedNote = Buffer;
             EditMode = false;
             ReadOnly = true;
 
@@ -282,6 +280,9 @@ namespace LocalNote.ViewModels {
             }
         }
 
+        /// <summary>
+        /// Loads each note's data from database.
+        /// </summary>
         private async void LoadNotesFromDatabase() {
             notes = await Repositories.DatabaseRepo.GetNotes();
 

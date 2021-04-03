@@ -15,7 +15,7 @@ namespace LocalNote.Repositories {
         /// <summary>
         /// Initializes the database.
         /// </summary>
-        public static void InitializeDB() {
+        public static async void InitializeDB() {
             using (var db = new SqliteConnection(conn)) {
                 // Open the database
                 db.Open();
@@ -35,7 +35,33 @@ namespace LocalNote.Repositories {
 
                 // Execute the command
                 try {
-                    create.ExecuteReader();
+                    await create.ExecuteReaderAsync();
+                } catch (SqliteException e) {
+                    Debug.WriteLine(e);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Drops the table that was initialized. Used for testing.
+        /// </summary>
+        public static async void DropDB() {
+            using (var db = new SqliteConnection(conn)) {
+                // Open the database
+                db.Open();
+
+                // Create the command to create a table
+                var drop = new SqliteCommand {
+                    Connection = db,
+                    CommandText =
+                    @"
+                        DROP TABLE IF EXISTS NotesTable;
+                    "
+                };
+
+                // Execute the command
+                try {
+                    await drop.ExecuteReaderAsync();
                 } catch (SqliteException e) {
                     Debug.WriteLine(e);
                 }
@@ -45,8 +71,8 @@ namespace LocalNote.Repositories {
         /// <summary>
         /// Adds a note to the database.
         /// </summary>
-        /// <param name="note"></param>
-        public static void AddNote(NoteModel note) {
+        /// <param name="note">The note to be added.</param>
+        public static async void AddNote(NoteModel note) {
             using (var db = new SqliteConnection(conn)) {
                 // Open the database
                 db.Open();
@@ -67,7 +93,7 @@ namespace LocalNote.Repositories {
 
                 // Execute the command
                 try {
-                    insert.ExecuteReader();
+                    await insert.ExecuteReaderAsync();
                 } catch (SqliteException e) {
                     Debug.WriteLine(e);
                 }
@@ -77,8 +103,8 @@ namespace LocalNote.Repositories {
         /// <summary>
         /// Updates a note record in the database.
         /// </summary>
-        /// <param name="note"></param>
-        public static void UpdateNote(NoteModel note) {
+        /// <param name="note">The note to be updated.</param>
+        public static async void UpdateNote(NoteModel note) {
             using (var db = new SqliteConnection(conn)) {
                 // Open the database
                 db.Open();
@@ -100,7 +126,7 @@ namespace LocalNote.Repositories {
 
                 // Execute the command
                 try {
-                    update.ExecuteReader();
+                    await update.ExecuteReaderAsync();
                 } catch (SqliteException e) {
                     Debug.WriteLine(e);
                 }
@@ -110,8 +136,8 @@ namespace LocalNote.Repositories {
         /// <summary>
         /// Deletes a note record in the database.
         /// </summary>
-        /// <param name="note"></param>
-        public static void DeleteNote(NoteModel note) {
+        /// <param name="note">The note to be deleted.</param>
+        public static async void DeleteNote(NoteModel note) {
             using (var db = new SqliteConnection(conn)) {
                 // Open the database
                 db.Open();
@@ -131,7 +157,7 @@ namespace LocalNote.Repositories {
 
                 // Execute the command
                 try {
-                    delete.ExecuteReader();
+                    await delete.ExecuteReaderAsync();
                 } catch (SqliteException e) {
                     Debug.WriteLine(e);
                 }
@@ -141,7 +167,7 @@ namespace LocalNote.Repositories {
         /// <summary>
         /// Gets all the notes from the database.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The notes collection</returns>
         public async static Task<ObservableCollection<NoteModel>> GetNotes() {
             ObservableCollection<NoteModel> notes = new ObservableCollection<NoteModel>();
 
@@ -158,7 +184,7 @@ namespace LocalNote.Repositories {
                 // Execute the command
                 SqliteDataReader query = null;
                 try {
-                    query = select.ExecuteReader();
+                    query = await select.ExecuteReaderAsync();
                 } catch (SqliteException e) {
                     Debug.WriteLine(e);
                 }
@@ -170,6 +196,46 @@ namespace LocalNote.Repositories {
             }
             // Return the notes collection
             return notes;
+        }
+
+        /// <summary>
+        /// Checks if the note already exist in the database.
+        /// </summary>
+        /// <param name="note">The note to be checked.</param>
+        /// <returns>True if it does, otherwise returns false.</returns>
+        public async static Task<bool> NoteExist(NoteModel note) {
+            using (var db = new SqliteConnection(conn)) {
+                // Open the database
+                db.Open();
+
+                // Create the select command to get all the notes in the table
+                var select = new SqliteCommand {
+                    Connection = db,
+                    CommandText = 
+                    @"
+                        SELECT * FROM NotesTable 
+                        WHERE title LIKE @title;
+                    "
+                };
+
+                // Add the parameters to the command
+                select.Parameters.AddWithValue("@title", note.Title);
+
+                // Execute the command
+                SqliteDataReader query = null;
+                try {
+                    query = await select.ExecuteReaderAsync();
+                } catch (SqliteException e) {
+                    Debug.WriteLine(e);
+                }
+
+                // If we can read the query, then the note already exists
+                while (query.Read()) {
+                    return true;
+                }
+                // Otherwise, it doesn't exist
+                return false;
+            }
         }
     }
 }

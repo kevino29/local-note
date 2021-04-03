@@ -106,13 +106,21 @@ namespace LocalNote.Commands {
                 }
                 // Do not continue if the user clicks 'Cancel'
                 else return;
+
+                // Save the note data to file
+                //Repositories.NotesRepo.SaveNoteToFile(noteViewModel.SelectedNote);
+
+                // Save the note to the database
+                Repositories.DatabaseRepo.AddNote(noteViewModel.SelectedNote);
             }
 
-            // Save the note data to file
-            //Repositories.NotesRepo.SaveNoteToFile(noteViewModel.SelectedNote);
-
-            // Save the note to the database
-            Repositories.DatabaseRepo.AddNote(noteViewModel.SelectedNote);
+            // Note to be saved already exists
+            else {
+                // Double checking
+                if (await Repositories.DatabaseRepo.NoteExist(noteViewModel.SelectedNote)) {
+                    Repositories.DatabaseRepo.UpdateNote(noteViewModel.SelectedNote);
+                }
+            }
 
             // Show a dialog that the save was successful
             ContentDialog dialog = new ContentDialog() {

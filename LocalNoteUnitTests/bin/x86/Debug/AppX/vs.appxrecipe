@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\varax\source\repos\LocalNote\LocalNoteUnitTests\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>513D612D488515973989E4DD83ADCFD96BB50A19BEE8620E6F4E368784F77D57</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>F5BE1C5FE0889CB906ACDF939B68A7EA9BE355E0B350CE27D425CD46629A18F0</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>831df93c-71d2-4346-971d-07e9a2025b55_1.0.0.0_x86__qsvncpr8vnq4e</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>831df93c-71d2-4346-971d-07e9a2025b55_qsvncpr8vnq4e!vstest.executionengine.universal.App</RegisteredUserModeAppID>
     <RegisteredPackageID>831df93c-71d2-4346-971d-07e9a2025b55</RegisteredPackageID>
@@ -30,61 +30,85 @@
     <AppXManifest Include="C:\Users\varax\source\repos\LocalNote\LocalNoteUnitTests\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-03-31T14:09:15.149</Modified>
+      <Modified>2021-04-03T14:24:30.070</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNoteUnitTests\bin\x86\Debug\LocalNoteUnitTests.exe">
       <PackagePath>entrypoint\LocalNoteUnitTests.exe</PackagePath>
-      <Modified>2021-03-31T14:09:14.421</Modified>
+      <Modified>2021-04-03T14:24:29.020</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\LocalNote.exe">
       <PackagePath>LocalNote.exe</PackagePath>
-      <Modified>2021-03-30T19:01:02.661</Modified>
+      <Modified>2021-04-03T14:24:23.869</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNoteUnitTests\bin\x86\Debug\LocalNoteUnitTests.pdb">
       <PackagePath>LocalNoteUnitTests.pdb</PackagePath>
-      <Modified>2021-03-31T14:09:14.421</Modified>
+      <Modified>2021-04-03T14:24:29.020</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\LocalNote.pdb">
       <PackagePath>LocalNote.pdb</PackagePath>
-      <Modified>2021-03-30T19:01:02.661</Modified>
+      <Modified>2021-04-03T14:24:23.869</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\TestPlatform.Universal\16.0\References\CommonConfiguration\neutral\testhost.dll">
       <PackagePath>testhost.dll</PackagePath>
       <Modified>2021-02-04T18:00:30.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\mstest.testframework\2.0.0\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll">
-      <PackagePath>Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</PackagePath>
-      <Modified>2019-08-30T15:35:34.000</Modified>
+    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\microsoft.data.sqlite.core\5.0.4\lib\netstandard2.0\Microsoft.Data.Sqlite.dll">
+      <PackagePath>Microsoft.Data.Sqlite.dll</PackagePath>
+      <Modified>2021-02-19T02:53:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\mstest.testframework\2.0.0\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll">
+    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\mstest.testframework\2.2.3\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll">
+      <PackagePath>Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</PackagePath>
+      <Modified>2021-03-16T16:22:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\mstest.testframework\2.2.3\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll">
       <PackagePath>Microsoft.VisualStudio.TestPlatform.TestFramework.dll</PackagePath>
-      <Modified>2019-08-30T15:13:26.000</Modified>
+      <Modified>2021-03-16T16:20:00.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\newtonsoft.json\9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
       <Modified>2016-06-14T02:06:14.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.11\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
+    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
-      <Modified>2020-11-20T12:09:24.000</Modified>
+      <Modified>2021-02-05T05:15:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\sqlitepclraw.bundle_winsqlite3\2.0.4\lib\netstandard2.0\SQLitePCLRaw.batteries_v2.dll">
+      <PackagePath>SQLitePCLRaw.batteries_v2.dll</PackagePath>
+      <Modified>2020-09-03T20:13:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\sqlitepclraw.core\2.0.4\lib\netstandard2.0\SQLitePCLRaw.core.dll">
+      <PackagePath>SQLitePCLRaw.core.dll</PackagePath>
+      <Modified>2020-09-03T20:13:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\sqlitepclraw.provider.winsqlite3\2.0.4\lib\netstandard2.0\SQLitePCLRaw.provider.winsqlite3.dll">
+      <PackagePath>SQLitePCLRaw.provider.winsqlite3.dll</PackagePath>
+      <Modified>2020-09-03T20:13:24.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
+      <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
+      <Modified>2018-09-18T22:38:10.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2020-12-02T07:52:00.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\mstest.testadapter\2.0.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll">
+    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\mstest.testadapter\2.2.3\build\_common\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll">
       <PackagePath>Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll</PackagePath>
-      <Modified>2019-08-30T15:28:46.000</Modified>
+      <Modified>2021-03-16T16:27:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\mstest.testadapter\2.0.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll">
+    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\mstest.testadapter\2.2.3\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll">
       <PackagePath>Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll</PackagePath>
-      <Modified>2019-08-30T15:26:42.000</Modified>
+      <Modified>2021-03-16T16:18:28.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\mstest.testadapter\2.0.0\build\uap10.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll">
+    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\mstest.testadapter\2.2.3\build\uap10.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll">
       <PackagePath>Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll</PackagePath>
-      <Modified>2019-08-30T15:29:56.000</Modified>
+      <Modified>2021-03-16T16:24:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\varax\.nuget\packages\mstest.testadapter\2.2.3\build\uap10.0\Microsoft.TestPlatform.AdapterUtilities.dll">
+      <PackagePath>Microsoft.TestPlatform.AdapterUtilities.dll</PackagePath>
+      <Modified>2021-02-23T16:03:34.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\TestPlatform.Universal\16.0\Redist\CommonConfiguration\neutral\Microsoft.TestPlatform.CommunicationUtilities.dll">
       <PackagePath>Microsoft.TestPlatform.CommunicationUtilities.dll</PackagePath>
@@ -272,27 +296,27 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNoteUnitTests\bin\x86\Debug\UnitTestApp.xbf">
       <PackagePath>UnitTestApp.xbf</PackagePath>
-      <Modified>2021-03-24T16:51:33.211</Modified>
+      <Modified>2021-04-03T14:24:28.951</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-03-30T19:01:02.536</Modified>
+      <Modified>2021-04-03T14:24:23.772</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-03-30T19:01:02.536</Modified>
+      <Modified>2021-04-03T14:24:23.773</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\AboutDialog.xbf">
       <PackagePath>Views\AboutDialog.xbf</PackagePath>
-      <Modified>2021-03-30T19:01:02.536</Modified>
+      <Modified>2021-04-03T14:24:23.773</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\DeleteNoteDialog.xbf">
       <PackagePath>Views\DeleteNoteDialog.xbf</PackagePath>
-      <Modified>2021-03-30T19:01:02.536</Modified>
+      <Modified>2021-04-03T14:24:23.773</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\SaveNoteDialog.xbf">
       <PackagePath>Views\SaveNoteDialog.xbf</PackagePath>
-      <Modified>2021-03-30T19:01:02.536</Modified>
+      <Modified>2021-04-03T14:24:23.773</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
@@ -304,65 +328,65 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNoteUnitTests\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-03-31T14:09:14.712</Modified>
+      <Modified>2021-04-03T14:24:29.232</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNoteUnitTests\bin\x86\Debug\Core\LocalNoteUnitTests.exe">
       <PackagePath>LocalNoteUnitTests.exe</PackagePath>
-      <Modified>2021-03-31T14:09:15.129</Modified>
+      <Modified>2021-04-03T14:24:30.036</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
-    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.11\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\varax\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
       <Name>Microsoft.NET.CoreRuntime.2.2</Name>
-      <Version>2.2.27902.3</Version>
+      <Version>2.2.29713.2</Version>
       <Architecture>x86</Architecture>
-      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.27902.3, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.11\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.29713.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\varax\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.11\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\varax\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
       <Name>Microsoft.NET.CoreRuntime.2.2</Name>
-      <Version>2.2.27902.3</Version>
+      <Version>2.2.29713.2</Version>
       <Architecture>x64</Architecture>
-      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.27902.3, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.11\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.29713.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\varax\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.11\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\varax\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
       <Name>Microsoft.NET.CoreRuntime.2.2</Name>
-      <Version>2.2.27902.3</Version>
+      <Version>2.2.29713.2</Version>
       <Architecture>arm</Architecture>
-      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.27902.3, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.11\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.29713.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\varax\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.11\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\varax\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
       <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
       <Version>2.2.29301.2</Version>
       <Architecture>x86</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.29301.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.11\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Users\varax\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.11\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\varax\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
       <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
       <Version>2.2.29301.2</Version>
       <Architecture>x64</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.29301.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.11\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Users\varax\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.11\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\varax\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
       <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
       <Version>2.2.29301.2</Version>
       <Architecture>arm</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.29301.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.11\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Users\varax\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
