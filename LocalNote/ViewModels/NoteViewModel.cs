@@ -9,10 +9,8 @@ using LocalNote.Models;
 using LocalNote.Commands;
 using Windows.Storage;
 
-namespace LocalNote.ViewModels
-{
-    public class NoteViewModel : INotifyPropertyChanged
-    {
+namespace LocalNote.ViewModels {
+    public class NoteViewModel : INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
@@ -43,8 +41,7 @@ namespace LocalNote.ViewModels
         /// <summary>
         /// Constructor
         /// </summary>
-        public NoteViewModel()
-        {
+        public NoteViewModel() {
             notes = new ObservableCollection<NoteModel>();
             notesForLV = new ObservableCollection<NoteModel>();
             SaveCommand = new SaveCommand(this);
@@ -58,21 +55,18 @@ namespace LocalNote.ViewModels
             EditMode = false;
             ReadOnly = true;
 
-            LoadNotes();
-            //LoadNotesFromDatabase();
+            //LoadNotes();
+            LoadNotesFromDatabase();
         }
 
         /// <summary>
         /// Gets and sets the selected note property.
         /// </summary>
-        public NoteModel SelectedNote
-        {
-            get 
-            { 
+        public NoteModel SelectedNote {
+            get {
                 if (selectedNote != null)
                     return selectedNote;
-                else
-                {
+                else {
                     // If there is no selected note,
                     // Create a buffer note and set that as selected
                     Buffer = new NoteModel();
@@ -80,16 +74,12 @@ namespace LocalNote.ViewModels
                     return selectedNote;
                 }
             }
-            set
-            {
+            set {
                 selectedNote = value;
-                if (value == null)
-                {
+                if (value == null) {
                     noteTitle = "";
                     noteContent = "";
-                }
-                else
-                {
+                } else {
                     noteTitle = value.Title;
                     noteContent = value.Content;
                 }
@@ -103,7 +93,7 @@ namespace LocalNote.ViewModels
 
                 // Always turn on the ability to delete the selected note
                 DeleteCommand.FireCanExecuteChanged();
-                
+
                 // Always turn off edit mode when switching notes
                 EditMode = false;
                 EditCommand.FireCanExecuteChanged();
@@ -117,8 +107,7 @@ namespace LocalNote.ViewModels
         /// <summary>
         /// Gets and sets the buffer property.
         /// </summary>
-        public NoteModel Buffer
-        {
+        public NoteModel Buffer {
             get { return this.buffer; }
             set { this.buffer = value; }
         }
@@ -128,24 +117,19 @@ namespace LocalNote.ViewModels
         /// </summary>
         public string NoteTitle {
             get { return noteTitle; }
-            set 
-            {
-                if (SelectedNote != null)
-                {
+            set {
+                if (SelectedNote != null) {
                     // Check if the title changed from previous
-                    if (SelectedNote.Title != value)
-                    {
+                    if (SelectedNote.Title != value) {
                         SelectedNote.Title = value;
 
                         // Only activate the saving command when the title changes
                         SelectedNote.NeedSaving = true;
                         SelectedNote.FirePropertyChanged("NeedSaving");
                         SaveCommand.FireCanExecuteChanged();
-                    }
-                    else
+                    } else
                         SelectedNote.Title = value;
-                }
-                else
+                } else
                     noteTitle = value;
             }
         }
@@ -153,37 +137,29 @@ namespace LocalNote.ViewModels
         /// <summary>
         /// Gets and sets the note content for the currenlty selected note.
         /// </summary>
-        public string NoteContent
-        {
+        public string NoteContent {
             get { return noteContent; }
-            set
-            {
-                if (SelectedNote != null)
-                {
+            set {
+                if (SelectedNote != null) {
                     // Check if the content changed from previous
-                    if (SelectedNote.Content != value)
-                    {
+                    if (SelectedNote.Content != value) {
                         SelectedNote.Content = value;
 
                         // Only activate the saving command when the content changes
                         SelectedNote.NeedSaving = true;
                         SelectedNote.FirePropertyChanged("NeedSaving");
                         SaveCommand.FireCanExecuteChanged();
-                    }
-                    else SelectedNote.Content = value;
-                }
-                else noteContent = value;
+                    } else SelectedNote.Content = value;
+                } else noteContent = value;
             }
         }
 
         /// <summary>
         /// Gets and sets the filter string.
         /// </summary>
-        public string Filter
-        {
+        public string Filter {
             get { return this.filter; }
-            set 
-            {
+            set {
                 // Skip if the new filter is the same as previous
                 if (value == filter) { return; }
 
@@ -196,14 +172,11 @@ namespace LocalNote.ViewModels
         /// <summary>
         /// Gets and sets the edit mode property.
         /// </summary>
-        public bool EditMode
-        {
+        public bool EditMode {
             get { return this.editMode; }
-            set
-            {
+            set {
                 // Edit mode is always off when there is no note selected
-                if (SelectedNote == null)
-                {
+                if (SelectedNote == null) {
                     editMode = false;
                     return;
                 }
@@ -214,14 +187,11 @@ namespace LocalNote.ViewModels
         /// <summary>
         /// Gets and sets the read-only property.
         /// </summary>
-        public bool ReadOnly
-        {
+        public bool ReadOnly {
             get { return this.readOnly; }
-            set
-            {
+            set {
                 // Read only mode is always off when in edit mode
-                if (EditMode)
-                {
+                if (EditMode) {
                     readOnly = false;
                     return;
                 }
@@ -233,24 +203,20 @@ namespace LocalNote.ViewModels
         /// Fires the PropertyChanged event with the given property name.
         /// </summary>
         /// <param name="property"></param>
-        public void FirePropertyChanged(string property)
-        {
+        public void FirePropertyChanged(string property) {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
         /// <summary>
         /// Performs a filter on the notes list based on the filter property.
         /// </summary>
-        private void PerformFilter()
-        {
-            if (this.filter == null)
-            {
+        private void PerformFilter() {
+            if (this.filter == null) {
                 filter = "";
 
                 // Clear the collection of notes used to display to the UI
                 NotesForLV.Clear();
-                foreach (var note in Notes)
-                {
+                foreach (var note in Notes) {
                     NotesForLV.Add(note);
                 }
             }
@@ -268,14 +234,12 @@ namespace LocalNote.ViewModels
             var toRemove = NotesForLV.Except(result).ToList();
 
             // Remove the notes that does not match the filter
-            foreach (var x in toRemove)
-            {
+            foreach (var x in toRemove) {
                 NotesForLV.Remove(x);
             }
 
             // Add all the notes that matches the filter to the list that is displayed in the UI
-            for (int i = 0; i < result.Count; i++)
-            {
+            for (int i = 0; i < result.Count; i++) {
                 var resultItem = result[i];
 
                 if (i + 1 > NotesForLV.Count || !NotesForLV[i].Equals(resultItem))
@@ -286,16 +250,14 @@ namespace LocalNote.ViewModels
         /// <summary>
         /// Updates the order of the notes lists based on the invidual note's title.
         /// </summary>
-        public void UpdateNotesLists()
-        {
+        public void UpdateNotesLists() {
             // Order the notes list based on the note title
             List<NoteModel> orderedList = Notes.OrderBy(x => x.Title).ToList();
             notes = new ObservableCollection<NoteModel>(orderedList);
 
             // Copy the notes list
             NotesForLV.Clear();
-            foreach (var note in Notes)
-            {
+            foreach (var note in Notes) {
                 NotesForLV.Add(note);
             }
         }
@@ -303,16 +265,14 @@ namespace LocalNote.ViewModels
         /// <summary>
         /// Loads each note's data from file.
         /// </summary>
-        private async void LoadNotes()
-        {
+        private async void LoadNotes() {
             // Get the folder where the notes are stored
             // Then get all the files within that folder
             StorageFolder notesFolder = ApplicationData.Current.LocalFolder;
             IReadOnlyList<StorageFile> fileList = await notesFolder.GetFilesAsync();
 
             // Read each file
-            foreach(var file in fileList)
-            {
+            foreach (var file in fileList) {
                 // Skip the database file
                 if (file.FileType == ".db") continue;
 
@@ -325,7 +285,7 @@ namespace LocalNote.ViewModels
         private async void LoadNotesFromDatabase() {
             notes = await Repositories.DatabaseRepo.GetNotes();
 
-            foreach(var note in notes) {
+            foreach (var note in notes) {
                 notesForLV.Add(note);
             }
             SelectedNote = Buffer;

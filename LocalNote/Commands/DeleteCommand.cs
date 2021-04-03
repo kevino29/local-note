@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 
-namespace LocalNote.Commands
-{
-    public class DeleteCommand : ICommand
-    {
+namespace LocalNote.Commands {
+    public class DeleteCommand : ICommand {
         public event EventHandler CanExecuteChanged;
         private readonly ViewModels.NoteViewModel noteViewModel;
         private readonly Views.DeleteNoteDialog delete;
@@ -18,8 +16,7 @@ namespace LocalNote.Commands
         /// Constructor
         /// </summary>
         /// <param name="noteViewModel"></param>
-        public DeleteCommand(ViewModels.NoteViewModel noteViewModel)
-        {
+        public DeleteCommand(ViewModels.NoteViewModel noteViewModel) {
             this.noteViewModel = noteViewModel;
             this.delete = new Views.DeleteNoteDialog();
         }
@@ -29,8 +26,7 @@ namespace LocalNote.Commands
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public bool CanExecute(object parameter)
-        {
+        public bool CanExecute(object parameter) {
             // If there are no note selected or
             // if the current note hasn't been saved yet (ie. The Buffer Note)
             // Then always return false
@@ -44,12 +40,10 @@ namespace LocalNote.Commands
         /// Executes the command.
         /// </summary>
         /// <param name="parameter"></param>
-        public async void Execute(object parameter)
-        {
+        public async void Execute(object parameter) {
             ContentDialogResult result = await delete.ShowAsync();
 
-            if (result == ContentDialogResult.Primary)
-            {
+            if (result == ContentDialogResult.Primary) {
                 // Get the selected note
                 Models.NoteModel noteToDelete = this.noteViewModel.SelectedNote;
 
@@ -81,8 +75,7 @@ namespace LocalNote.Commands
         /// <summary>
         /// Fires the CanExecuteChanged event.
         /// </summary>
-        public void FireCanExecuteChanged()
-        {
+        public void FireCanExecuteChanged() {
             this.CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
     }

@@ -15,24 +15,19 @@ using Windows.UI.Xaml.Navigation;
 
 // The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace LocalNote.Views
-{
-    public sealed partial class DeleteNoteDialog : ContentDialog
-    {
+namespace LocalNote.Views {
+    public sealed partial class DeleteNoteDialog : ContentDialog {
         /// <summary>
         /// Constructor
         /// </summary>
-        public DeleteNoteDialog()
-        {
+        public DeleteNoteDialog() {
             this.InitializeComponent();
         }
 
-        private void DeleteButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
+        private void DeleteButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args) {
         }
 
-        private void CancelButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
+        private void CancelButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args) {
         }
     }
 }

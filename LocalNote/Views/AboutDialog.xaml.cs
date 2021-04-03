@@ -15,17 +15,13 @@ using Windows.UI.Xaml.Navigation;
 
 // The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace LocalNote.Views
-{
-    public sealed partial class AboutDialog : ContentDialog
-    {
-        public AboutDialog()
-        {
+namespace LocalNote.Views {
+    public sealed partial class AboutDialog : ContentDialog {
+        public AboutDialog() {
             this.InitializeComponent();
         }
 
-        private void OKButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
+        private void OKButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args) {
 
         }
     }

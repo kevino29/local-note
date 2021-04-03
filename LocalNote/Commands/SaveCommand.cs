@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 
-namespace LocalNote.Commands
-{
-    public class SaveCommand : ICommand
-    {
+namespace LocalNote.Commands {
+    public class SaveCommand : ICommand {
         public event EventHandler CanExecuteChanged;
         private readonly ViewModels.NoteViewModel noteViewModel;
 
@@ -18,8 +16,7 @@ namespace LocalNote.Commands
         /// Constructor
         /// </summary>
         /// <param name="noteViewModel"></param>
-        public SaveCommand(ViewModels.NoteViewModel noteViewModel)
-        {
+        public SaveCommand(ViewModels.NoteViewModel noteViewModel) {
             this.noteViewModel = noteViewModel;
         }
 
@@ -28,8 +25,7 @@ namespace LocalNote.Commands
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public bool CanExecute(object parameter)
-        {
+        public bool CanExecute(object parameter) {
             if (noteViewModel.SelectedNote == null) return false;
             return noteViewModel.SelectedNote.NeedSaving;
         }
@@ -38,21 +34,18 @@ namespace LocalNote.Commands
         /// Executes the command.
         /// </summary>
         /// <param name="parameter"></param>
-        public async void Execute(object parameter)
-        {
+        public async void Execute(object parameter) {
             string saveNoteTitle = noteViewModel.SelectedNote.Title;
 
             // Check if the note has just been created
-            if (noteViewModel.SelectedNote.Title == "Untitled Note")
-            {
+            if (noteViewModel.SelectedNote.Title == "Untitled Note") {
                 // Create a save note dialog
                 Views.SaveNoteDialog save = new Views.SaveNoteDialog();
                 ContentDialogResult result;
 
                 // This loop makes sure that the user doesn't enter
                 // a duplicate, invalid, or empty title for a note
-                while (true)
-                {
+                while (true) {
                     result = await save.ShowAsync();
 
                     // Save the title given by the user
@@ -81,8 +74,7 @@ namespace LocalNote.Commands
                     if (result == ContentDialogResult.Secondary) break;
 
                     // Show a dialog that there is an error
-                    ContentDialog error = new ContentDialog()
-                    {
+                    ContentDialog error = new ContentDialog() {
                         Title = "Error Occurred",
                         Content = content,
                         PrimaryButtonText = "OK",
@@ -90,15 +82,13 @@ namespace LocalNote.Commands
                     await error.ShowAsync();
                 }
 
-                if (result == ContentDialogResult.Primary)
-                {
+                if (result == ContentDialogResult.Primary) {
                     // Get the new note title from the dialog
                     noteViewModel.SelectedNote.Title = saveNoteTitle;
-                    
+
                     // Check if the selected note is a buffer
                     // Add it to the notes lists first
-                    if (noteViewModel.SelectedNote == noteViewModel.Buffer)
-                    {
+                    if (noteViewModel.SelectedNote == noteViewModel.Buffer) {
                         noteViewModel.Notes.Add(noteViewModel.SelectedNote);
                         noteViewModel.NotesForLV.Add(noteViewModel.SelectedNote);
 
@@ -125,8 +115,7 @@ namespace LocalNote.Commands
             Repositories.DatabaseRepo.AddNote(noteViewModel.SelectedNote);
 
             // Show a dialog that the save was successful
-            ContentDialog dialog = new ContentDialog()
-            {
+            ContentDialog dialog = new ContentDialog() {
                 Title = "Saved successfully",
                 Content = "'" + saveNoteTitle + "'" + " has been saved.",
                 PrimaryButtonText = "OK",
@@ -137,42 +126,34 @@ namespace LocalNote.Commands
             AfterSavingDefaults();
         }
 
-        public bool IsFileNameEmpty(string fileName)
-        {
+        public bool IsFileNameEmpty(string fileName) {
             // Check for empty file name
             return string.IsNullOrEmpty(fileName);
         }
 
-        public bool IsFileNameDuplicate(string fileName) 
-        {
+        public bool IsFileNameDuplicate(string fileName) {
             if (IsFileNameEmpty(fileName)) return false;
-            
+
             // Check against duplicates
-            foreach (var note in noteViewModel.Notes)
-            {
+            foreach (var note in noteViewModel.Notes) {
                 if (note.Title == fileName) return true;
             }
             return false;
         }
 
-        public bool IsFileNameInvalid(string fileName)
-        {
+        public bool IsFileNameInvalid(string fileName) {
             if (IsFileNameEmpty(fileName)) return false;
 
             // Check for invalid file name characters
-            try
-            {
+            try {
                 return fileName.Contains("_") ||
                     fileName.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0;
-            }
-            catch (NullReferenceException)
-            {
+            } catch (NullReferenceException) {
                 throw new NullReferenceException();
             }
         }
 
-        private void AfterSavingDefaults()
-        {
+        private void AfterSavingDefaults() {
             // Turn off need saving
             this.noteViewModel.SelectedNote.NeedSaving = false;
             this.noteViewModel.SelectedNote.FirePropertyChanged("NeedSaving");
@@ -191,8 +172,7 @@ namespace LocalNote.Commands
         /// <summary>
         /// Fires the CanExecuteChanged event.
         /// </summary>
-        public void FireCanExecuteChanged()
-        {
+        public void FireCanExecuteChanged() {
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
     }

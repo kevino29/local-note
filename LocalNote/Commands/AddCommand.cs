@@ -5,10 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace LocalNote.Commands
-{
-    public class AddCommand : ICommand
-    {
+namespace LocalNote.Commands {
+    public class AddCommand : ICommand {
         public event EventHandler CanExecuteChanged;
         private readonly ViewModels.NoteViewModel noteViewModel;
 
@@ -16,8 +14,7 @@ namespace LocalNote.Commands
         /// Constructor
         /// </summary>
         /// <param name="noteViewModel"></param>
-        public AddCommand(ViewModels.NoteViewModel noteViewModel)
-        {
+        public AddCommand(ViewModels.NoteViewModel noteViewModel) {
             this.noteViewModel = noteViewModel;
         }
 
@@ -26,8 +23,7 @@ namespace LocalNote.Commands
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public bool CanExecute(object parameter)
-        {
+        public bool CanExecute(object parameter) {
             // Always able to add
             return true;
         }
@@ -36,8 +32,7 @@ namespace LocalNote.Commands
         /// Executes the command.
         /// </summary>
         /// <param name="parameter"></param>
-        public void Execute(object parameter)
-        {
+        public void Execute(object parameter) {
             // Create a new note
             Models.NoteModel newNote = new Models.NoteModel();
 
@@ -54,8 +49,7 @@ namespace LocalNote.Commands
         /// <summary>
         /// Fires the CanExecuteChanged event.
         /// </summary>
-        public void FireCanExecuteChanged()
-        {
+        public void FireCanExecuteChanged() {
             this.CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
     }

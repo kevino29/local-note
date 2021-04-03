@@ -5,10 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocalNote.Models
-{
-    public class NoteModel : INotifyPropertyChanged
-    {
+namespace LocalNote.Models {
+    public class NoteModel : INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
         public string Title { get; set; }
         public string Content { get; set; }
@@ -17,8 +15,7 @@ namespace LocalNote.Models
         /// <summary>
         /// Constructor
         /// </summary>
-        public NoteModel()
-        {
+        public NoteModel() {
             this.Title = "Untitled Note";
             this.Content = "";
         }
@@ -28,8 +25,7 @@ namespace LocalNote.Models
         /// </summary>
         /// <param name="title"></param>
         /// <param name="content"></param>
-        public NoteModel(string title, string content)
-        {
+        public NoteModel(string title, string content) {
             this.Title = title;
             this.Content = content;
         }
@@ -37,8 +33,7 @@ namespace LocalNote.Models
         /// <summary>
         /// Gets and sets the need saving property.
         /// </summary>
-        public bool NeedSaving
-        {
+        public bool NeedSaving {
             get { return this.needSaving; }
             set { this.needSaving = value; }
         }
@@ -47,8 +42,7 @@ namespace LocalNote.Models
         /// Fire the PropertyChanged event based on the given property name.
         /// </summary>
         /// <param name="property"></param>
-        public void FirePropertyChanged(string property)
-        {
+        public void FirePropertyChanged(string property) {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
     }

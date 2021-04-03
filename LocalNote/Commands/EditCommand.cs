@@ -5,10 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace LocalNote.Commands
-{
-    public class EditCommand : ICommand
-    {
+namespace LocalNote.Commands {
+    public class EditCommand : ICommand {
         public event EventHandler CanExecuteChanged;
         private readonly ViewModels.NoteViewModel noteViewModel;
 
@@ -16,8 +14,7 @@ namespace LocalNote.Commands
         /// Constructor
         /// </summary>
         /// <param name="noteViewModel"></param>
-        public EditCommand(ViewModels.NoteViewModel noteViewModel)
-        {
+        public EditCommand(ViewModels.NoteViewModel noteViewModel) {
             this.noteViewModel = noteViewModel;
         }
 
@@ -26,8 +23,7 @@ namespace LocalNote.Commands
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public bool CanExecute(object parameter)
-        {
+        public bool CanExecute(object parameter) {
             // Always false if there are no notes selected
             if (this.noteViewModel.SelectedNote == null) return false;
 
@@ -38,8 +34,7 @@ namespace LocalNote.Commands
         /// Executes the command.
         /// </summary>
         /// <param name="parameter"></param>
-        public void Execute(object parameter)
-        {
+        public void Execute(object parameter) {
             // Change the edit mode to true, then notify
             this.noteViewModel.EditMode = true;
             FireCanExecuteChanged();
@@ -52,8 +47,7 @@ namespace LocalNote.Commands
         /// <summary>
         /// Fires the CanExecuteChanged event.
         /// </summary>
-        public void FireCanExecuteChanged()
-        {
+        public void FireCanExecuteChanged() {
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
     }

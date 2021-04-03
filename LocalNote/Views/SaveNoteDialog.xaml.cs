@@ -15,27 +15,22 @@ using Windows.UI.Xaml.Navigation;
 
 // The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace LocalNote.Views
-{
-    public sealed partial class SaveNoteDialog : ContentDialog
-    {
+namespace LocalNote.Views {
+    public sealed partial class SaveNoteDialog : ContentDialog {
         public string NoteTitle { get; set; }
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public SaveNoteDialog()
-        {
+        public SaveNoteDialog() {
             this.InitializeComponent();
         }
 
-        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
+        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args) {
             NoteTitle = TitleTextbox.Text;
         }
 
-        private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
+        private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args) {
         }
     }
 }

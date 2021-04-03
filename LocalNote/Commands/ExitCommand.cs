@@ -8,10 +8,8 @@ using System.Windows.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace LocalNote.Commands
-{
-    public class ExitCommand : ICommand
-    {
+namespace LocalNote.Commands {
+    public class ExitCommand : ICommand {
         public event EventHandler CanExecuteChanged;
         private readonly ViewModels.NoteViewModel noteViewModel;
 
@@ -19,8 +17,7 @@ namespace LocalNote.Commands
         /// Constructor
         /// </summary>
         /// <param name="noteViewModel"></param>
-        public ExitCommand(ViewModels.NoteViewModel noteViewModel)
-        {
+        public ExitCommand(ViewModels.NoteViewModel noteViewModel) {
             this.noteViewModel = noteViewModel;
         }
 
@@ -29,8 +26,7 @@ namespace LocalNote.Commands
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public bool CanExecute(object parameter)
-        {
+        public bool CanExecute(object parameter) {
             return true;
         }
 
@@ -38,16 +34,12 @@ namespace LocalNote.Commands
         /// Executes the command.
         /// </summary>
         /// <param name="parameter"></param>
-        public async void Execute(object parameter)
-        {
+        public async void Execute(object parameter) {
             // Check if there are any unsaved changes
-            foreach (var note in noteViewModel.Notes)
-            {
-                if (note.NeedSaving)
-                {
+            foreach (var note in noteViewModel.Notes) {
+                if (note.NeedSaving) {
                     // If there is an unsaved note, create a dialog for confirmation
-                    ContentDialog dialog = new ContentDialog()
-                    {
+                    ContentDialog dialog = new ContentDialog() {
                         Title = "Unsaved Changes",
                         Content = "There are note(s) that you haven't saved yet. Continue?",
                         PrimaryButtonText = "Yes",
@@ -61,12 +53,9 @@ namespace LocalNote.Commands
             }
 
             // Exit the application
-            try
-            {
+            try {
                 Application.Current.Exit();
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
                 Debug.WriteLine("There's an error while closing the program.");
             }
         }
@@ -74,8 +63,7 @@ namespace LocalNote.Commands
         /// <summary>
         /// Fires the CanExecuteChanged event.
         /// </summary>
-        public void FireCanExecuteChanged()
-        {
+        public void FireCanExecuteChanged() {
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
     }
