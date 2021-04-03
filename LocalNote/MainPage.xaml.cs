@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -23,9 +24,16 @@ namespace LocalNote {
     /// </summary>
     public sealed partial class MainPage : Page {
         public ViewModels.NoteViewModel NoteViewModel { get; set; }
+        public Commands.AboutCommand AboutCommand { get; }
         public MainPage() {
             this.InitializeComponent();
             this.NoteViewModel = new ViewModels.NoteViewModel();
+            this.AboutCommand = new Commands.AboutCommand(this);
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e) {
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                AppViewBackButtonVisibility.Collapsed;
         }
 
         private void Editor_TextChanged(object sender, RoutedEventArgs e) {

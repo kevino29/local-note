@@ -22,7 +22,7 @@
             </CommandBar.Content>
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:ConnectionId='4' x:Name="About" Label="About"
-                                                                           ></AppBarButton>
+                                                             ></AppBarButton>
                 <AppBarButton x:ConnectionId='5' x:Name="Exit" Label="Exit"
                                                                           ></AppBarButton>
             </CommandBar.SecondaryCommands>

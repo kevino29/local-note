@@ -37,7 +37,6 @@ namespace LocalNote.ViewModels {
         public CancelCommand CancelCommand { get; }
         public DeleteCommand DeleteCommand { get; }
         public ExitCommand ExitCommand { get; }
-        public AboutCommand AboutCommand { get; }
 
         /// <summary>
         /// Constructor
@@ -51,7 +50,6 @@ namespace LocalNote.ViewModels {
             CancelCommand = new CancelCommand(this);
             DeleteCommand = new DeleteCommand(this);
             ExitCommand = new ExitCommand(this);
-            AboutCommand = new AboutCommand();
             EditMode = false;
             ReadOnly = true;
 
