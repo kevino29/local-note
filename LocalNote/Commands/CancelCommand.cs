@@ -4,18 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using LocalNote.ViewModels;
 
 namespace LocalNote.Commands {
-    public class EditCommand : ICommand {
+    public class CancelCommand : ICommand {
         public event EventHandler CanExecuteChanged;
-        private readonly ViewModels.NoteViewModel noteViewModel;
+        private readonly NoteViewModel vm;
 
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="noteViewModel"></param>
-        public EditCommand(ViewModels.NoteViewModel noteViewModel) {
-            this.noteViewModel = noteViewModel;
+        /// <param name="vm">The note view model.</param>
+        public CancelCommand(NoteViewModel vm) {
+            this.vm = vm;
         }
 
         /// <summary>
@@ -24,10 +25,8 @@ namespace LocalNote.Commands {
         /// <param name="parameter"></param>
         /// <returns></returns>
         public bool CanExecute(object parameter) {
-            // Always false if there are no notes selected
-            if (this.noteViewModel.SelectedNote == null) return false;
-
-            return !this.noteViewModel.EditMode;
+            if (vm.EditMode) return true;
+            else return false;
         }
 
         /// <summary>
@@ -35,20 +34,19 @@ namespace LocalNote.Commands {
         /// </summary>
         /// <param name="parameter"></param>
         public void Execute(object parameter) {
-            // Change the edit mode to true, then notify
-            this.noteViewModel.EditMode = true;
+            vm.EditMode = false;
+            vm.FirePropertyChanged(nameof(vm.EditMode));
+
+            vm.ReadOnly = true;
+            vm.FirePropertyChanged(nameof(vm.ReadOnly));
+
             FireCanExecuteChanged();
 
-            // Change the read only mode to false, then notify
-            this.noteViewModel.ReadOnly = false;
-            this.noteViewModel.FirePropertyChanged("ReadOnly");
-
-            // Enable the cancel button
-            noteViewModel.CancelCommand.FireCanExecuteChanged();
+            vm.EditCommand.FireCanExecuteChanged();
         }
 
         /// <summary>
-        /// Fires the CanExecuteChanged event.
+        /// Firest the CanExecuteChanged event.
         /// </summary>
         public void FireCanExecuteChanged() {
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);

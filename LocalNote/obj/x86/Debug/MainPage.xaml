@@ -35,8 +35,11 @@
             <AppBarButton x:ConnectionId='8' Icon="Edit" Label="Edit"
                           ToolTipService.ToolTip="Edit Note"
                                                                       ></AppBarButton>
+            <AppBarButton x:ConnectionId='9' Icon="Cancel" Label="Cancel"
+                          ToolTipService.ToolTip="Cancel Edit"
+                                                                        ></AppBarButton>
             <AppBarSeparator/>
-            <AppBarButton x:ConnectionId='9' Icon="Delete" Label="Delete"
+            <AppBarButton x:ConnectionId='10' Icon="Delete" Label="Delete"
                           ToolTipService.ToolTip="Delete Note"
                                                                         ></AppBarButton>
         </CommandBar>
@@ -52,22 +55,22 @@
             <ColumnDefinition Width="383*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBox x:ConnectionId='10' x:Name="SearchBox" Grid.Row="0" Grid.Column="0"
+        <TextBox x:ConnectionId='11' x:Name="SearchBox" Grid.Row="0" Grid.Column="0"
                  PlaceholderText="Search notes" FontSize="16"
                                                                                                        />
 
-        <ListView x:ConnectionId='11' x:Name="notesListView" Grid.Column="0"
+        <ListView x:ConnectionId='12' x:Name="notesListView" Grid.Column="0"
                   ItemsSource="{Binding Source={StaticResource NotesCollection}}"
                                                                                                                       
                   Margin="0,5,0,0" Grid.Row="1" >
             <ListView.ItemTemplate>
                 <DataTemplate                              >
-                    <TextBlock x:ConnectionId='14'                                                                         FontSize="18"/>
+                    <TextBlock x:ConnectionId='15'                                                                         FontSize="18"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <TextBox x:ConnectionId='12' Grid.RowSpan="2" Grid.Column="1" 
+        <TextBox x:ConnectionId='13' Grid.RowSpan="2" Grid.Column="1" 
                                                                                                             
                  PlaceholderText="Type your note here..."
                  TextWrapping="Wrap" 

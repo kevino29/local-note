@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="Commands\AboutCommand.cs" />
     <Compile Include="Commands\AddCommand.cs" />
+    <Compile Include="Commands\CancelCommand.cs" />
     <Compile Include="Commands\DeleteCommand.cs" />
     <Compile Include="Commands\EditCommand.cs" />
     <Compile Include="Commands\ExitCommand.cs" />

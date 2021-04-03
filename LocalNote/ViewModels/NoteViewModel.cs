@@ -34,6 +34,7 @@ namespace LocalNote.ViewModels {
         public SaveCommand SaveCommand { get; }
         public AddCommand AddCommand { get; }
         public EditCommand EditCommand { get; }
+        public CancelCommand CancelCommand { get; }
         public DeleteCommand DeleteCommand { get; }
         public ExitCommand ExitCommand { get; }
         public AboutCommand AboutCommand { get; }
@@ -47,6 +48,7 @@ namespace LocalNote.ViewModels {
             SaveCommand = new SaveCommand(this);
             AddCommand = new AddCommand(this);
             EditCommand = new EditCommand(this);
+            CancelCommand = new CancelCommand(this);
             DeleteCommand = new DeleteCommand(this);
             ExitCommand = new ExitCommand(this);
             AboutCommand = new AboutCommand();

@@ -35,6 +35,9 @@
             <AppBarButton Icon="Edit" Label="Edit"
                           ToolTipService.ToolTip="Edit Note"
                           Command="{x:Bind NoteViewModel.EditCommand}"></AppBarButton>
+            <AppBarButton Icon="Cancel" Label="Cancel"
+                          ToolTipService.ToolTip="Cancel Edit"
+                          Command="{x:Bind NoteViewModel.CancelCommand}"></AppBarButton>
             <AppBarSeparator/>
             <AppBarButton Icon="Delete" Label="Delete"
                           ToolTipService.ToolTip="Delete Note"
