@@ -175,6 +175,9 @@ namespace LocalNote.Commands {
             // Turn on read only mode
             this.noteViewModel.ReadOnly = true;
             this.noteViewModel.FirePropertyChanged("ReadOnly");
+
+            // Turn off cancel edit button
+            this.noteViewModel.CancelCommand.FireCanExecuteChanged();
         }
 
         /// <summary>

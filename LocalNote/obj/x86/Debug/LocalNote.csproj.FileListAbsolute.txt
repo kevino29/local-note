@@ -118,3 +118,4 @@ C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\qualifiers.txt.int
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424923200000000.json
+C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\LocalNote.csprojAssemblyReference.cache

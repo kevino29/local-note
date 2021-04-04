@@ -45,6 +45,27 @@
         </CommandBar>
     </Page.TopAppBar>
 
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarToggleButton 
+                Icon="FontIncrease" Label="Increase Font Size"
+                ToolTipService.ToolTip="Increases the font size of the highlighted text."/>
+            <AppBarToggleButton 
+                Icon="FontDecrease" Label="Decrease Font Size"
+                ToolTipService.ToolTip="Decreases the font size of the highlighted text."/>
+            <AppBarSeparator/>
+            <AppBarToggleButton 
+                Icon="Bold" Label="Bold"
+                ToolTipService.ToolTip="Bolds the highlighted text."/>
+            <AppBarToggleButton 
+                Icon="Italic" Label="Italic"
+                ToolTipService.ToolTip="Italicizes the highlighted text."/>
+            <AppBarToggleButton 
+                Icon="Underline" Label="Underline"
+                ToolTipService.ToolTip="Underlines the highlighted text."/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="29*"/>

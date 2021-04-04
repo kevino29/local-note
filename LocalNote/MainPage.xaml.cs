@@ -27,7 +27,7 @@ namespace LocalNote {
         public Commands.AboutCommand AboutCommand { get; }
         public MainPage() {
             this.InitializeComponent();
-            this.NoteViewModel = new ViewModels.NoteViewModel();
+            this.NoteViewModel = new ViewModels.NoteViewModel(editor);
             this.AboutCommand = new Commands.AboutCommand(this);
         }
 

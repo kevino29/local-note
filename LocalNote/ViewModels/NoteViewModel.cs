@@ -8,11 +8,14 @@ using System.Threading.Tasks;
 using LocalNote.Models;
 using LocalNote.Commands;
 using Windows.Storage;
+using Windows.UI.Xaml.Controls;
+using System.Diagnostics;
 
 namespace LocalNote.ViewModels {
     public class NoteViewModel : INotifyPropertyChanged {
+        #region Properties
         public event PropertyChangedEventHandler PropertyChanged;
-
+        
         /// <summary>
         /// Private properties
         /// </summary>
@@ -25,6 +28,7 @@ namespace LocalNote.ViewModels {
         private bool readOnly;
         private NoteModel selectedNote;
         private NoteModel buffer;
+        private RichEditBox editor;
 
         /// <summary>
         /// Getters and setters
@@ -37,11 +41,12 @@ namespace LocalNote.ViewModels {
         public CancelCommand CancelCommand { get; }
         public DeleteCommand DeleteCommand { get; }
         public ExitCommand ExitCommand { get; }
+        #endregion
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public NoteViewModel() {
+        public NoteViewModel(RichEditBox editor) {
             notes = new ObservableCollection<NoteModel>();
             notesForLV = new ObservableCollection<NoteModel>();
             SaveCommand = new SaveCommand(this);
@@ -52,11 +57,13 @@ namespace LocalNote.ViewModels {
             ExitCommand = new ExitCommand(this);
             EditMode = false;
             ReadOnly = true;
+            this.editor = editor;
 
             //LoadNotes();
             LoadNotesFromDatabase();
         }
 
+        #region Getters and Setters
         /// <summary>
         /// Gets and sets the selected note property.
         /// </summary>
@@ -82,6 +89,18 @@ namespace LocalNote.ViewModels {
                     noteContent = value.Content;
                 }
 
+                // Change the editor's text
+                try {
+                    // Set the focus on the editor
+                    editor.Focus(Windows.UI.Xaml.FocusState.Pointer);
+
+                    // Need to turn off read only to set the text of the editor
+                    editor.IsReadOnly = false;
+                    editor.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, noteContent);
+                } catch (UnauthorizedAccessException e) {
+                    Debug.WriteLine(e);
+                }
+
                 // Notify that the title and content changed
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NoteTitle)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NoteContent)));
@@ -99,6 +118,9 @@ namespace LocalNote.ViewModels {
                 // Always turn on read only mode when switching notes
                 ReadOnly = true;
                 FirePropertyChanged(nameof(ReadOnly));
+
+                // Always turn off cancel edit when switching notes
+                CancelCommand.FireCanExecuteChanged();
             }
         }
 
@@ -196,6 +218,7 @@ namespace LocalNote.ViewModels {
                 this.readOnly = value;
             }
         }
+        #endregion
 
         /// <summary>
         /// Fires the PropertyChanged event with the given property name.
@@ -243,6 +266,12 @@ namespace LocalNote.ViewModels {
                 if (i + 1 > NotesForLV.Count || !NotesForLV[i].Equals(resultItem))
                     NotesForLV.Insert(i, resultItem);
             }
+        }
+
+        public void Editor_TextChanged() {
+            editor.Document.GetText(Windows.UI.Text.TextGetOptions.FormatRtf, out string text);
+            NoteContent = text;
+            FirePropertyChanged(nameof(NoteContent));
         }
 
         /// <summary>
