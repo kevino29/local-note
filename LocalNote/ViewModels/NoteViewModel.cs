@@ -35,30 +35,30 @@ namespace LocalNote.ViewModels {
         /// </summary>
         public ObservableCollection<NoteModel> Notes { get { return notes; } }
         public ObservableCollection<NoteModel> NotesForLV { get { return notesForLV; } }
-        public SaveCommand SaveCommand { get; }
-        public AddCommand AddCommand { get; }
-        public EditCommand EditCommand { get; }
-        public CancelCommand CancelCommand { get; }
-        public DeleteCommand DeleteCommand { get; }
-        public ExitCommand ExitCommand { get; }
+        public SaveCommand SaveCommand { get; set; }
+        public AddCommand AddCommand { get; set; }
+        public EditCommand EditCommand { get; set; }
+        public CancelCommand CancelCommand { get; set; }
+        public DeleteCommand DeleteCommand { get; set; }
+        public ExitCommand ExitCommand { get; set; }
         #endregion
 
         /// <summary>
-        /// Constructor
+        /// Default constructor.
         /// </summary>
-        public NoteViewModel(RichEditBox editor) {
-            notes = new ObservableCollection<NoteModel>();
-            notesForLV = new ObservableCollection<NoteModel>();
-            SaveCommand = new SaveCommand(this);
-            AddCommand = new AddCommand(this);
-            EditCommand = new EditCommand(this);
-            CancelCommand = new CancelCommand(this);
-            DeleteCommand = new DeleteCommand(this);
-            ExitCommand = new ExitCommand(this);
-            EditMode = false;
-            ReadOnly = true;
-            this.editor = editor;
+        public NoteViewModel() {
+            Init();
+            //LoadNotes();
+            LoadNotesFromDatabase();
+        }
 
+        /// <summary>
+        /// Constructor with editor parameter.
+        /// </summary>
+        /// <param name="editor"></param>
+        public NoteViewModel(RichEditBox editor) {
+            Init();
+            this.editor = editor;
             //LoadNotes();
             LoadNotesFromDatabase();
         }
@@ -219,6 +219,22 @@ namespace LocalNote.ViewModels {
             }
         }
         #endregion
+
+        /// <summary>
+        /// Properties initializer
+        /// </summary>
+        private void Init() {
+            notes = new ObservableCollection<NoteModel>();
+            notesForLV = new ObservableCollection<NoteModel>();
+            SaveCommand = new SaveCommand(this);
+            AddCommand = new AddCommand(this);
+            EditCommand = new EditCommand(this);
+            CancelCommand = new CancelCommand(this);
+            DeleteCommand = new DeleteCommand(this);
+            ExitCommand = new ExitCommand(this);
+            EditMode = false;
+            ReadOnly = true;
+        }
 
         /// <summary>
         /// Fires the PropertyChanged event with the given property name.
