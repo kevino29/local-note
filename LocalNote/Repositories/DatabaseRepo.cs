@@ -89,7 +89,7 @@ namespace LocalNote.Repositories {
 
                 // Add the parameters to the command 
                 insert.Parameters.AddWithValue("@title", note.Title);
-                insert.Parameters.AddWithValue("@content", note.Content);
+                insert.Parameters.AddWithValue("@content", note.Content.Rtf);
 
                 // Execute the command
                 try {
@@ -122,7 +122,7 @@ namespace LocalNote.Repositories {
 
                 // Add the parameters to the command
                 update.Parameters.AddWithValue("@title", note.Title);
-                update.Parameters.AddWithValue("@content", note.Content);
+                update.Parameters.AddWithValue("@content", note.Content.Rtf);
 
                 // Execute the command
                 try {
@@ -191,7 +191,7 @@ namespace LocalNote.Repositories {
 
                 // Add all the records returned to the notes collection
                 while (query.Read()) {
-                    notes.Add(new NoteModel(query.GetString(0), query.GetString(1)));
+                    notes.Add(new NoteModel(query.GetString(0), new ContentModel(query.GetString(1), "")));
                 }
             }
             // Return the notes collection

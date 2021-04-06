@@ -34,9 +34,14 @@ namespace LocalNote.Commands {
         /// </summary>
         /// <param name="parameter"></param>
         public void Execute(object parameter) {
+            // Notify that the edit mode value has changed
             vm.EditMode = false;
             vm.FirePropertyChanged(nameof(vm.EditMode));
 
+            // Notify the command bar to hide
+            vm.FirePropertyChanged(nameof(vm.EditorCommandsVisibility));
+
+            // Notify that the read only value has changed
             vm.ReadOnly = true;
             vm.FirePropertyChanged(nameof(vm.ReadOnly));
 

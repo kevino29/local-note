@@ -58,7 +58,7 @@ namespace LocalNote.Commands {
                 // Reset the notes properties
                 this.noteViewModel.NoteTitle = "";
                 this.noteViewModel.FirePropertyChanged("NoteTitle");
-                this.noteViewModel.NoteContent = "";
+                this.noteViewModel.NoteContent = new Models.ContentModel();
                 this.noteViewModel.FirePropertyChanged("NoteContent");
 
                 // Notify that the selected note has changed

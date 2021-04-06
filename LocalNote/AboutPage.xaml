@@ -15,38 +15,51 @@
         </Style>
     </Page.Resources>
 
-    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="20,20,20,0">
-        <TextBlock Text="About this App" Margin="0,0,0,100"
+    <ScrollViewer>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="20,20,20,0">
+            <TextBlock Text="About this App" Margin="0,0,0,100"
                    FontSize="32" FontWeight="Bold"/>
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="57*"/>
-                <ColumnDefinition Width="235*"/>
-            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="57*"/>
+                    <ColumnDefinition Width="235*"/>
+                </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="20*"/>
-                <RowDefinition Height="20*"/>
-                <RowDefinition Height="20*"/>
-                <RowDefinition Height="20*"/>
-            </Grid.RowDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="20*"/>
+                </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Title:"/>
-            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="title" 
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Title:"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" x:Name="title" 
                        TextWrapping="Wrap" Text="LocalNote"/>
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Version:"/>
-            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="version" 
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Version:"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" x:Name="version" 
                        TextWrapping="Wrap" Text="v1.0.0"/>
 
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="Publisher:"/>
-            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="publisher" 
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Publisher:"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" x:Name="publisher" 
                        TextWrapping="Wrap" Text="ConcernedCat Ltd."/>
 
-            <TextBlock Grid.Row="3" Grid.Column="0" Text="Copyright:"/>
-            <TextBlock Grid.Row="3" Grid.Column="1" x:Name="copyright" 
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Copyright:"/>
+                <TextBlock Grid.Row="3" Grid.Column="1" x:Name="copyright" 
                        TextWrapping="Wrap" Text="ConcernedCat 2021"/>
-        </Grid>
-    </StackPanel>
+            </Grid>
+
+            <StackPanel Orientation="Vertical" Margin="0,100,0,0">
+                <TextBlock Text="Developer's Notes" Margin="0,0,0,40" FontSize="32"/>
+                <TextBlock Text="Known Bugs:"/>
+                <StackPanel Margin="20,0,0,0">
+                    <TextBlock TextWrapping="Wrap" Text="∙ On start-up, a note is selected even though the selected note behind the scenes is 'null'."/>
+                    <TextBlock TextWrapping="Wrap" Text="∙ Switching notes will add a carriage return character on the currently selected note."/>
+                    <TextBlock TextWrapping="Wrap" Text="∙ The added carriage return character triggers the note being saveable even though nothing was typed/changed."/>
+                    <TextBlock TextWrapping="Wrap" Text="∙ Sometimes when selecting a note, the content is invisible because the text color is the same color as the background."/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
 </Page>

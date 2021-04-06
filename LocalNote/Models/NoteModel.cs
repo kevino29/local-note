@@ -9,7 +9,7 @@ namespace LocalNote.Models {
     public class NoteModel : INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
         public string Title { get; set; }
-        public string Content { get; set; }
+        public ContentModel Content { get; set; }
         private bool needSaving = false;
 
         /// <summary>
@@ -17,7 +17,7 @@ namespace LocalNote.Models {
         /// </summary>
         public NoteModel() {
             this.Title = "Untitled Note";
-            this.Content = "";
+            this.Content = new ContentModel();
         }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace LocalNote.Models {
         /// </summary>
         /// <param name="title"></param>
         /// <param name="content"></param>
-        public NoteModel(string title, string content) {
+        public NoteModel(string title, ContentModel content) {
             this.Title = title;
             this.Content = content;
         }

@@ -16,20 +16,21 @@ namespace LocalNote.ViewModels {
     public class NoteViewModel : INotifyPropertyChanged {
         #region Properties
         public event PropertyChangedEventHandler PropertyChanged;
-        
+
         /// <summary>
         /// Private properties
         /// </summary>
         private ObservableCollection<NoteModel> notes;
         private ObservableCollection<NoteModel> notesForLV;
         private string noteTitle;
-        private string noteContent;
+        private ContentModel noteContent;
         private string filter;
         private bool editMode;
         private bool readOnly;
         private NoteModel selectedNote;
         private NoteModel buffer;
         private RichEditBox editor;
+        private string editorCommandsVisibility;
 
         /// <summary>
         /// Getters and setters
@@ -87,7 +88,7 @@ namespace LocalNote.ViewModels {
                 selectedNote = value;
                 if (value == null) {
                     noteTitle = "";
-                    noteContent = "";
+                    noteContent = new ContentModel();
                 } else {
                     noteTitle = value.Title;
                     noteContent = value.Content;
@@ -97,7 +98,7 @@ namespace LocalNote.ViewModels {
                 try {
                     // Need to turn off read only to set the text of the editor
                     editor.IsReadOnly = false;
-                    editor.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, noteContent);
+                    editor.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, noteContent.Rtf);
                 } catch (UnauthorizedAccessException e) {
                     Debug.WriteLine(e);
                 }
@@ -119,6 +120,9 @@ namespace LocalNote.ViewModels {
                 ReadOnly = true;
 
                 // Always turn off cancel edit when switching notes
+
+                // Always hide the edito command bar
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(EditorCommandsVisibility)));
             }
         }
 
@@ -127,6 +131,21 @@ namespace LocalNote.ViewModels {
         /// </summary>
         public RichEditBox Editor {
             get { return this.editor; }
+        }
+
+        /// <summary>
+        /// Gets and sets the editor command bar visibility.
+        /// </summary>
+        public string EditorCommandsVisibility {
+            get { 
+                return this.editorCommandsVisibility; 
+            }
+            set {
+                if (SelectedNote != null) {
+                    if (EditMode) this.editorCommandsVisibility = "Visible";
+                    else this.editorCommandsVisibility = "Collapsed";
+                } else this.editorCommandsVisibility = value;
+            } 
         }
 
         /// <summary>
@@ -161,20 +180,25 @@ namespace LocalNote.ViewModels {
         /// <summary>
         /// Gets and sets the note content for the currenlty selected note.
         /// </summary>
-        public string NoteContent {
+        public ContentModel NoteContent {
             get { return noteContent; }
             set {
                 if (SelectedNote != null) {
                     // Check if the content changed from previous
-                    if (SelectedNote.Content != value) {
-                        SelectedNote.Content = value;
+                    if (SelectedNote.Content.PlainText != value.PlainText &&
+                        value.PlainText != "\r\r") {
+                        SelectedNote.Content.Rtf = value.Rtf;
+                        SelectedNote.Content.PlainText = value.PlainText;
 
                         // Only activate the saving command when the content changes
                         SelectedNote.NeedSaving = true;
                         FirePropertyChanged(nameof(NoteContent));
                         SelectedNote.FirePropertyChanged("NeedSaving");
                         SaveCommand.FireCanExecuteChanged();
-                    } else SelectedNote.Content = value;
+                    } else {
+                        SelectedNote.Content.Rtf = value.Rtf;
+                        SelectedNote.Content.PlainText = value.PlainText;
+                    }
                 } else noteContent = value;
             }
         }
@@ -305,8 +329,10 @@ namespace LocalNote.ViewModels {
         }
 
         public void Editor_TextChanged() {
-            editor.Document.GetText(Windows.UI.Text.TextGetOptions.FormatRtf, out string text);
-            NoteContent = text;
+            editor.Document.GetText(Windows.UI.Text.TextGetOptions.FormatRtf, out string rtf);
+            editor.Document.GetText(Windows.UI.Text.TextGetOptions.None, out string text);
+            NoteContent.Rtf = rtf;
+            NoteContent.PlainText = text;
             FirePropertyChanged(nameof(NoteContent));
         }
 
@@ -325,7 +351,7 @@ namespace LocalNote.ViewModels {
                 if (file.FileType == ".db") continue;
 
                 string content = await FileIO.ReadTextAsync(file);
-                notes.Add(new NoteModel(file.DisplayName.Replace("_", " "), content));
+                notes.Add(new NoteModel(file.DisplayName.Replace("_", " "), new ContentModel(content, content)));
                 notesForLV.Add(notes.Last());
             }
         }

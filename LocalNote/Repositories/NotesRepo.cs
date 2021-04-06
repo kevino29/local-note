@@ -20,7 +20,7 @@ namespace LocalNote.Repositories {
                 // Create the file asynchronously, then add the content asynchronously
                 StorageFile noteFile =
                     await notesFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
-                await FileIO.AppendTextAsync(noteFile, selected.Content);
+                await FileIO.AppendTextAsync(noteFile, selected.Content.Rtf);
             } catch (Exception) {
                 Debug.WriteLine("An error occured when saving the note file.");
             }

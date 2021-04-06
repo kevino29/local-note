@@ -58,7 +58,7 @@ namespace LocalNoteUnitTests
         [UITestMethod]
         public void Test_SaveCommand_IsFileNameDuplicate_When_FileNameAlreadyExists()
         {
-            vm.Notes.Add(new LocalNote.Models.NoteModel("TITLE", "CONTENT"));
+            vm.Notes.Add(new LocalNote.Models.NoteModel("TITLE", new LocalNote.Models.ContentModel("CONTENT", "CONTENT")));
             string fileName = "TITLE";
             Assert.IsTrue(save.IsFileNameDuplicate(fileName));
         }

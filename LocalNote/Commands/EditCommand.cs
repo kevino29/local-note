@@ -26,7 +26,6 @@ namespace LocalNote.Commands {
         public bool CanExecute(object parameter) {
             // Always false if there are no notes selected
             if (this.noteViewModel.SelectedNote == null) return false;
-
             return !this.noteViewModel.EditMode;
         }
 
@@ -38,6 +37,9 @@ namespace LocalNote.Commands {
             // Change the edit mode to true, then notify
             this.noteViewModel.EditMode = true;
             FireCanExecuteChanged();
+
+            // Notify the command bar to show
+            this.noteViewModel.FirePropertyChanged("EditorCommandsVisibility");
 
             // Change the read only mode to false, then notify
             this.noteViewModel.ReadOnly = false;
