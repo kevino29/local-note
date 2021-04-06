@@ -127,6 +127,11 @@
     <Compile Include="Commands\CancelCommand.cs" />
     <Compile Include="Commands\DeleteCommand.cs" />
     <Compile Include="Commands\EditCommand.cs" />
+    <Compile Include="Commands\EditorCommands\BoldCommand.cs" />
+    <Compile Include="Commands\EditorCommands\FontDecrease.cs" />
+    <Compile Include="Commands\EditorCommands\FontIncrease.cs" />
+    <Compile Include="Commands\EditorCommands\ItalicCommand.cs" />
+    <Compile Include="Commands\EditorCommands\UnderlineCommand.cs" />
     <Compile Include="Commands\ExitCommand.cs" />
     <Compile Include="Commands\SaveCommand.cs" />
     <Compile Include="MainPage.xaml.cs">

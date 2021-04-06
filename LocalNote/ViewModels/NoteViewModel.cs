@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LocalNote.Models;
 using LocalNote.Commands;
+using LocalNote.Commands.EditorCommands;
 using Windows.Storage;
 using Windows.UI.Xaml.Controls;
 using System.Diagnostics;
@@ -41,6 +42,11 @@ namespace LocalNote.ViewModels {
         public CancelCommand CancelCommand { get; set; }
         public DeleteCommand DeleteCommand { get; set; }
         public ExitCommand ExitCommand { get; set; }
+        public FontIncrease FontIncrease { get; set; }
+        public FontDecrease FontDecrease { get; set; }
+        public BoldCommand BoldCommand { get; set; }
+        public ItalicCommand ItalicCommand { get; set; }
+        public UnderlineCommand UnderlineCommand { get; set; }
         #endregion
 
         /// <summary>
@@ -48,7 +54,6 @@ namespace LocalNote.ViewModels {
         /// </summary>
         public NoteViewModel() {
             Init();
-            //LoadNotes();
             LoadNotesFromDatabase();
         }
 
@@ -57,9 +62,8 @@ namespace LocalNote.ViewModels {
         /// </summary>
         /// <param name="editor"></param>
         public NoteViewModel(RichEditBox editor) {
-            Init();
             this.editor = editor;
-            //LoadNotes();
+            Init();
             LoadNotesFromDatabase();
         }
 
@@ -91,9 +95,6 @@ namespace LocalNote.ViewModels {
 
                 // Change the editor's text
                 try {
-                    // Set the focus on the editor
-                    editor.Focus(Windows.UI.Xaml.FocusState.Pointer);
-
                     // Need to turn off read only to set the text of the editor
                     editor.IsReadOnly = false;
                     editor.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, noteContent);
@@ -113,15 +114,19 @@ namespace LocalNote.ViewModels {
 
                 // Always turn off edit mode when switching notes
                 EditMode = false;
-                EditCommand.FireCanExecuteChanged();
 
                 // Always turn on read only mode when switching notes
                 ReadOnly = true;
-                FirePropertyChanged(nameof(ReadOnly));
 
                 // Always turn off cancel edit when switching notes
-                CancelCommand.FireCanExecuteChanged();
             }
+        }
+
+        /// <summary>
+        /// Gets the editor property
+        /// </summary>
+        public RichEditBox Editor {
+            get { return this.editor; }
         }
 
         /// <summary>
@@ -145,12 +150,11 @@ namespace LocalNote.ViewModels {
 
                         // Only activate the saving command when the title changes
                         SelectedNote.NeedSaving = true;
+                        FirePropertyChanged(nameof(NoteTitle));
                         SelectedNote.FirePropertyChanged("NeedSaving");
                         SaveCommand.FireCanExecuteChanged();
-                    } else
-                        SelectedNote.Title = value;
-                } else
-                    noteTitle = value;
+                    } else SelectedNote.Title = value;
+                } else noteTitle = value;
             }
         }
 
@@ -167,6 +171,7 @@ namespace LocalNote.ViewModels {
 
                         // Only activate the saving command when the content changes
                         SelectedNote.NeedSaving = true;
+                        FirePropertyChanged(nameof(NoteContent));
                         SelectedNote.FirePropertyChanged("NeedSaving");
                         SaveCommand.FireCanExecuteChanged();
                     } else SelectedNote.Content = value;
@@ -198,9 +203,13 @@ namespace LocalNote.ViewModels {
                 // Edit mode is always off when there is no note selected
                 if (SelectedNote == null) {
                     editMode = false;
+                    EditCommand.FireCanExecuteChanged();
+                    CancelCommand.FireCanExecuteChanged();
                     return;
                 }
                 this.editMode = value;
+                EditCommand.FireCanExecuteChanged();
+                CancelCommand.FireCanExecuteChanged();
             }
         }
 
@@ -213,9 +222,15 @@ namespace LocalNote.ViewModels {
                 // Read only mode is always off when in edit mode
                 if (EditMode) {
                     readOnly = false;
+                    FirePropertyChanged(nameof(ReadOnly));
+                    EditCommand.FireCanExecuteChanged();
+                    CancelCommand.FireCanExecuteChanged();
                     return;
                 }
                 this.readOnly = value;
+                FirePropertyChanged(nameof(ReadOnly));
+                EditCommand.FireCanExecuteChanged();
+                CancelCommand.FireCanExecuteChanged();
             }
         }
         #endregion
@@ -232,6 +247,11 @@ namespace LocalNote.ViewModels {
             CancelCommand = new CancelCommand(this);
             DeleteCommand = new DeleteCommand(this);
             ExitCommand = new ExitCommand(this);
+            FontIncrease = new FontIncrease(this);
+            FontDecrease = new FontDecrease(this);
+            BoldCommand = new BoldCommand(this);
+            ItalicCommand = new ItalicCommand(this);
+            UnderlineCommand = new UnderlineCommand(this);
             EditMode = false;
             ReadOnly = true;
         }
@@ -288,21 +308,6 @@ namespace LocalNote.ViewModels {
             editor.Document.GetText(Windows.UI.Text.TextGetOptions.FormatRtf, out string text);
             NoteContent = text;
             FirePropertyChanged(nameof(NoteContent));
-        }
-
-        /// <summary>
-        /// Updates the order of the notes lists based on the invidual note's title.
-        /// </summary>
-        public void UpdateNotesLists() {
-            // Order the notes list based on the note title
-            List<NoteModel> orderedList = Notes.OrderBy(x => x.Title).ToList();
-            notes = new ObservableCollection<NoteModel>(orderedList);
-
-            // Copy the notes list
-            NotesForLV.Clear();
-            foreach (var note in Notes) {
-                NotesForLV.Add(note);
-            }
         }
 
         /// <summary>

@@ -39,7 +39,6 @@ namespace LocalNote {
         private void Editor_TextChanged(object sender, RoutedEventArgs e) {
             editor.Document.GetText(Windows.UI.Text.TextGetOptions.FormatRtf, out string text);
             NoteViewModel.NoteContent = text;
-            Debug.WriteLine(text);
         }
     }
 }

@@ -47,22 +47,27 @@
 
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarToggleButton 
+            <AppBarButton x:ConnectionId='11' 
                 Icon="FontIncrease" Label="Increase Font Size"
-                ToolTipService.ToolTip="Increases the font size of the highlighted text."/>
-            <AppBarToggleButton 
+                ToolTipService.ToolTip="Increases the font size of the highlighted text."
+                                                             />
+            <AppBarButton x:ConnectionId='12' 
                 Icon="FontDecrease" Label="Decrease Font Size"
-                ToolTipService.ToolTip="Decreases the font size of the highlighted text."/>
+                ToolTipService.ToolTip="Decreases the font size of the highlighted text."
+                                                             />
             <AppBarSeparator/>
-            <AppBarToggleButton 
+            <AppBarButton x:ConnectionId='13' 
                 Icon="Bold" Label="Bold"
-                ToolTipService.ToolTip="Bolds the highlighted text."/>
-            <AppBarToggleButton 
+                ToolTipService.ToolTip="Bolds the highlighted text."
+                                                            />
+            <AppBarButton x:ConnectionId='14' 
                 Icon="Italic" Label="Italic"
-                ToolTipService.ToolTip="Italicizes the highlighted text."/>
-            <AppBarToggleButton 
+                ToolTipService.ToolTip="Italicizes the highlighted text."
+                                                              />
+            <AppBarButton x:ConnectionId='15' 
                 Icon="Underline" Label="Underline"
-                ToolTipService.ToolTip="Underlines the highlighted text."/>
+                ToolTipService.ToolTip="Underlines the highlighted text."
+                                                                 />
         </CommandBar>
     </Page.BottomAppBar>
 
@@ -76,23 +81,23 @@
             <ColumnDefinition Width="383*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBox x:ConnectionId='11' x:Name="SearchBox" Grid.Row="0" Grid.Column="0"
+        <TextBox x:ConnectionId='16' x:Name="SearchBox" Grid.Row="0" Grid.Column="0"
                  PlaceholderText="Search notes" FontSize="16"
                                                                                                        />
 
-        <ListView x:ConnectionId='12' 
+        <ListView x:ConnectionId='17' 
             x:Name="notesListView" Grid.Column="0"
             ItemsSource="{Binding Source={StaticResource NotesCollection}}"
                                                                                                                 
             Margin="0,5,0,0" Grid.Row="1" >
             <ListView.ItemTemplate>
                 <DataTemplate                              >
-                    <TextBlock x:ConnectionId='15'                                                                         FontSize="18"/>
+                    <TextBlock x:ConnectionId='20'                                                                         FontSize="18"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <RichEditBox x:ConnectionId='13' 
+        <RichEditBox x:ConnectionId='18' 
             x:Name="editor"
             Grid.RowSpan="2" Grid.Column="1"
             PlaceholderText="Type your note here..."

@@ -178,7 +178,7 @@ namespace LocalNote.Repositories {
                 // Create the select command to get all the notes in the table
                 var select = new SqliteCommand {
                     Connection = db,
-                    CommandText = "SELECT title, content FROM NotesTable;"
+                    CommandText = "SELECT title, content FROM NotesTable ORDER BY title;"
                 };
 
                 // Execute the command

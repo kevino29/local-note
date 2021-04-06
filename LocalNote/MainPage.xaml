@@ -47,22 +47,27 @@
 
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarToggleButton 
+            <AppBarButton 
                 Icon="FontIncrease" Label="Increase Font Size"
-                ToolTipService.ToolTip="Increases the font size of the highlighted text."/>
-            <AppBarToggleButton 
+                ToolTipService.ToolTip="Increases the font size of the highlighted text."
+                Command="{x:Bind NoteViewModel.FontIncrease}"/>
+            <AppBarButton 
                 Icon="FontDecrease" Label="Decrease Font Size"
-                ToolTipService.ToolTip="Decreases the font size of the highlighted text."/>
+                ToolTipService.ToolTip="Decreases the font size of the highlighted text."
+                Command="{x:Bind NoteViewModel.FontDecrease}"/>
             <AppBarSeparator/>
-            <AppBarToggleButton 
+            <AppBarButton 
                 Icon="Bold" Label="Bold"
-                ToolTipService.ToolTip="Bolds the highlighted text."/>
-            <AppBarToggleButton 
+                ToolTipService.ToolTip="Bolds the highlighted text."
+                Command="{x:Bind NoteViewModel.BoldCommand}"/>
+            <AppBarButton 
                 Icon="Italic" Label="Italic"
-                ToolTipService.ToolTip="Italicizes the highlighted text."/>
-            <AppBarToggleButton 
+                ToolTipService.ToolTip="Italicizes the highlighted text."
+                Command="{x:Bind NoteViewModel.ItalicCommand}"/>
+            <AppBarButton 
                 Icon="Underline" Label="Underline"
-                ToolTipService.ToolTip="Underlines the highlighted text."/>
+                ToolTipService.ToolTip="Underlines the highlighted text."
+                Command="{x:Bind NoteViewModel.UnderlineCommand}"/>
         </CommandBar>
     </Page.BottomAppBar>
 
