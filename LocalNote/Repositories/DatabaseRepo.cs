@@ -100,7 +100,7 @@ namespace LocalNote.Repositories {
                 try {
                     await insert.ExecuteReaderAsync();
                 } catch (SqliteException e) {
-                    Debug.WriteLine(e);
+                    Debug.WriteLine("Sqlite exception: " + e);
                 }
             }
         }
@@ -283,8 +283,8 @@ namespace LocalNote.Repositories {
                 try {
                     select.Parameters.AddWithValue("@title", note.Title);
                 } catch (NullReferenceException e) { 
-                    Debug.WriteLine("Error occurred: Note is null. Error: " + e); 
-                    throw new NullReferenceException(); 
+                    Debug.WriteLine("Error occurred: Note is null. Error: " + e);
+                    throw new NullReferenceException();
                 }
 
                 // Execute the command

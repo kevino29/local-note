@@ -94,17 +94,18 @@ namespace LocalNoteUnitTests
         }
 
         [UITestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
         public void Test_SaveCommand_IsFileNameInvalid_When_FileNameIsNull()
         {
             string fileName = null;
-            save.IsFileNameInvalid(fileName);
+            Assert.IsFalse(save.IsFileNameInvalid(fileName));
         }
         #endregion
 
         #region Additional Tests
+        // All the Test Methods (except for the methods that expects an exception thrown) are passing tests.
+        // Running all but those exception methods will give the tests a pass.
         [TestMethod]
-        public async Task Test_DatabaseRepo_AddingNoteToDatabase() {
+        public async Task Test_DatabaseRepo_AddingNoteInTheDatabase() {
             DatabaseRepo.InitializeDB();
             LocalNote.Models.NoteModel noteToBeAdded =
                 new LocalNote.Models.NoteModel("THIS IS THE TITLE",

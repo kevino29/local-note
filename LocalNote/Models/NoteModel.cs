@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,14 +47,29 @@ namespace LocalNote.Models {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
+        public bool Equals(NoteModel other) {
+            if (other is null) return false;
+
+            if (Object.ReferenceEquals(this, other)) return true;
+
+            if (GetType() != other.GetType()) return false;
+            return Title == other.Title;
+        }
+
         public static bool operator ==(NoteModel a, NoteModel b) {
-            if (a == null || b == null) return false;
-            return (a.Title == b.Title);
+            if (a is null) {
+                if (b is null) return true;
+                return false;
+            }
+            return a.Equals(b);
         }
 
         public static bool operator !=(NoteModel a, NoteModel b) {
-            if (a == null || b == null) return false;
-            return (a.Title != b.Title);
+            if (a is null) {
+                if (b is null) return false;
+                return true;
+            }
+            return !a.Equals(b);
         }
     }
 }

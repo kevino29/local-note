@@ -97,10 +97,14 @@ namespace LocalNote.ViewModels {
                 // Change the editor's text
                 try {
                     // Need to turn off read only to set the text of the editor
-                    editor.IsReadOnly = false;
-                    editor.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, noteContent.Rtf);
+                    if (editor != null) {
+                        editor.IsReadOnly = false;
+                        editor.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, noteContent.Rtf);
+                    }
                 } catch (UnauthorizedAccessException e) {
-                    Debug.WriteLine(e);
+                    Debug.WriteLine("Access to Editor was denied. Error: " + e);
+                } catch (NullReferenceException e) {
+                    Debug.WriteLine("Editor is null. Error: " + e);
                 }
 
                 // Notify that the title and content changed
