@@ -69,7 +69,6 @@ C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\SQLitePCLRaw.core.
 C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\SQLitePCLRaw.provider.winsqlite3.dll
 C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Microsoft.UI.Xaml.Markup.winmd
-C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\LocalNote.csprojAssemblyReference.cache
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\App.g.i.cs
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\App.g.cs
 C:\Users\varax\source\repos\LocalNote\LocalNote\obj\x86\Debug\AboutPage.g.i.cs

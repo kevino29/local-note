@@ -120,9 +120,6 @@ namespace LocalNote.ViewModels {
                 ReadOnly = true;
 
                 // Always turn off cancel edit when switching notes
-
-                // Always hide the edito command bar
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(EditorCommandsVisibility)));
             }
         }
 
@@ -326,14 +323,6 @@ namespace LocalNote.ViewModels {
                 if (i + 1 > NotesForLV.Count || !NotesForLV[i].Equals(resultItem))
                     NotesForLV.Insert(i, resultItem);
             }
-        }
-
-        public void Editor_TextChanged() {
-            editor.Document.GetText(Windows.UI.Text.TextGetOptions.FormatRtf, out string rtf);
-            editor.Document.GetText(Windows.UI.Text.TextGetOptions.None, out string text);
-            NoteContent.Rtf = rtf;
-            NoteContent.PlainText = text;
-            FirePropertyChanged(nameof(NoteContent));
         }
 
         /// <summary>

@@ -19,7 +19,9 @@ namespace LocalNote.Commands.EditorCommands {
         }
 
         public void Execute(object parameter) {
-            vm.Editor.Document.Selection.CharacterFormat.Size -= 2;
+            // Minimum font size of 4
+            if (vm.Editor.Document.Selection.CharacterFormat.Size >= 4)
+                vm.Editor.Document.Selection.CharacterFormat.Size -= 2;
         }
 
         public void FireCanExecuteChanged() {

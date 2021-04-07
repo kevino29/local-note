@@ -45,5 +45,15 @@ namespace LocalNote.Models {
         public void FirePropertyChanged(string property) {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
+
+        public static bool operator ==(NoteModel a, NoteModel b) {
+            if (a == null || b == null) return false;
+            return (a.Title == b.Title);
+        }
+
+        public static bool operator !=(NoteModel a, NoteModel b) {
+            if (a == null || b == null) return false;
+            return (a.Title != b.Title);
+        }
     }
 }

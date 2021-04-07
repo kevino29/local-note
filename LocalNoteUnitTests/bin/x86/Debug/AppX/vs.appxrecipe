@@ -30,25 +30,25 @@
     <AppXManifest Include="C:\Users\varax\source\repos\LocalNote\LocalNoteUnitTests\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-03T14:24:30.070</Modified>
+      <Modified>2021-04-07T15:19:05.142</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNoteUnitTests\bin\x86\Debug\LocalNoteUnitTests.exe">
       <PackagePath>entrypoint\LocalNoteUnitTests.exe</PackagePath>
-      <Modified>2021-04-03T14:24:29.020</Modified>
+      <Modified>2021-04-07T15:19:04.583</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\LocalNote.exe">
       <PackagePath>LocalNote.exe</PackagePath>
-      <Modified>2021-04-03T14:24:23.869</Modified>
+      <Modified>2021-04-07T15:18:58.829</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNoteUnitTests\bin\x86\Debug\LocalNoteUnitTests.pdb">
       <PackagePath>LocalNoteUnitTests.pdb</PackagePath>
-      <Modified>2021-04-03T14:24:29.020</Modified>
+      <Modified>2021-04-07T15:19:04.583</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\LocalNote.pdb">
       <PackagePath>LocalNote.pdb</PackagePath>
-      <Modified>2021-04-03T14:24:23.869</Modified>
+      <Modified>2021-04-07T15:18:58.829</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\TestPlatform.Universal\16.0\References\CommonConfiguration\neutral\testhost.dll">
       <PackagePath>testhost.dll</PackagePath>
@@ -292,31 +292,35 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\LocalNote.xr.xml">
       <PackagePath>LocalNote.xr.xml</PackagePath>
-      <Modified>2021-03-23T19:13:53.122</Modified>
+      <Modified>2021-04-06T18:42:54.294</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNoteUnitTests\bin\x86\Debug\UnitTestApp.xbf">
       <PackagePath>UnitTestApp.xbf</PackagePath>
-      <Modified>2021-04-03T14:24:28.951</Modified>
+      <Modified>2021-04-07T15:19:04.505</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-04-03T14:24:23.772</Modified>
+      <Modified>2021-04-07T15:18:58.698</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\AboutPage.xbf">
+      <PackagePath>AboutPage.xbf</PackagePath>
+      <Modified>2021-04-07T15:18:58.698</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-04-03T14:24:23.773</Modified>
+      <Modified>2021-04-07T15:18:58.699</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\AboutDialog.xbf">
       <PackagePath>Views\AboutDialog.xbf</PackagePath>
-      <Modified>2021-04-03T14:24:23.773</Modified>
+      <Modified>2021-04-07T15:18:58.699</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\DeleteNoteDialog.xbf">
       <PackagePath>Views\DeleteNoteDialog.xbf</PackagePath>
-      <Modified>2021-04-03T14:24:23.773</Modified>
+      <Modified>2021-04-07T15:18:58.699</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\bin\x86\Debug\Views\SaveNoteDialog.xbf">
       <PackagePath>Views\SaveNoteDialog.xbf</PackagePath>
-      <Modified>2021-04-03T14:24:23.773</Modified>
+      <Modified>2021-04-07T15:18:58.699</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNote\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
@@ -328,11 +332,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNoteUnitTests\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-04-03T14:24:29.232</Modified>
+      <Modified>2021-04-07T14:10:59.300</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\varax\source\repos\LocalNote\LocalNoteUnitTests\bin\x86\Debug\Core\LocalNoteUnitTests.exe">
       <PackagePath>LocalNoteUnitTests.exe</PackagePath>
-      <Modified>2021-04-03T14:24:30.036</Modified>
+      <Modified>2021-04-07T15:19:05.113</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

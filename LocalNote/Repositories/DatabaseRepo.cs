@@ -87,9 +87,14 @@ namespace LocalNote.Repositories {
                     "
                 };
 
-                // Add the parameters to the command 
-                insert.Parameters.AddWithValue("@title", note.Title);
-                insert.Parameters.AddWithValue("@content", note.Content.Rtf);
+                // Add the parameters to the command
+                try {
+                    insert.Parameters.AddWithValue("@title", note.Title);
+                    insert.Parameters.AddWithValue("@content", note.Content.Rtf);
+                } catch (NullReferenceException e) {
+                    Debug.WriteLine("Error occurred: Note is null. Error: " + e);
+                    throw new NullReferenceException();
+                }
 
                 // Execute the command
                 try {
@@ -121,8 +126,13 @@ namespace LocalNote.Repositories {
                 };
 
                 // Add the parameters to the command
-                update.Parameters.AddWithValue("@title", note.Title);
-                update.Parameters.AddWithValue("@content", note.Content.Rtf);
+                try {
+                    update.Parameters.AddWithValue("@title", note.Title);
+                    update.Parameters.AddWithValue("@content", note.Content.Rtf);
+                } catch (NullReferenceException e) {
+                    Debug.WriteLine("Error occurred: Note is null. Error: " + e);
+                    throw new NullReferenceException();
+                }
 
                 // Execute the command
                 try {
@@ -153,7 +163,12 @@ namespace LocalNote.Repositories {
                 };
 
                 // Add the parameters to the command
-                delete.Parameters.AddWithValue("@title", note.Title);
+                try {
+                    delete.Parameters.AddWithValue("@title", note.Title);
+                } catch (NullReferenceException e) {
+                    Debug.WriteLine("Error occurred: Note is null. Error: " + e);
+                    throw new NullReferenceException();
+                }
 
                 // Execute the command
                 try {
@@ -162,6 +177,52 @@ namespace LocalNote.Repositories {
                     Debug.WriteLine(e);
                 }
             }
+        }
+
+        /// <summary>
+        /// Gets the specific note from the database based on the title given.
+        /// </summary>
+        /// <param name="title">The title of the note.</param>
+        /// <returns>The note model of the specific note.</returns>
+        public async static Task<NoteModel> GetNote(string title) {
+            NoteModel note = null;
+
+            using (var db = new SqliteConnection(conn)) {
+                // Open the database
+                db.Open();
+
+                // Create the select command to get the specific note in the table
+                var select = new SqliteCommand {
+                    Connection = db,
+                    CommandText = 
+                        @"
+                            SELECT title, content FROM NotesTable
+                            WHERE title = @title;
+                        "
+                };
+
+                // Add the parameter to the select statement
+                try {
+                    select.Parameters.AddWithValue("@title", title.Trim());
+                } catch (NullReferenceException e) {
+                    Debug.WriteLine("Error occurred: Title is null. Error: " + e);
+                    throw new NullReferenceException();
+                }
+
+                // Execute the command
+                SqliteDataReader query = null;
+                try {
+                    query = await select.ExecuteReaderAsync();
+                } catch (SqliteException e) {
+                    Debug.WriteLine(e);
+                }
+
+                // Set the record returned to the note object
+                while (query.Read()) {
+                    note = new NoteModel(query.GetString(0), new ContentModel(query.GetString(1), ""));
+                }
+            }
+            return note;
         }
 
         /// <summary>
@@ -219,7 +280,12 @@ namespace LocalNote.Repositories {
                 };
 
                 // Add the parameters to the command
-                select.Parameters.AddWithValue("@title", note.Title);
+                try {
+                    select.Parameters.AddWithValue("@title", note.Title);
+                } catch (NullReferenceException e) { 
+                    Debug.WriteLine("Error occurred: Note is null. Error: " + e); 
+                    throw new NullReferenceException(); 
+                }
 
                 // Execute the command
                 SqliteDataReader query = null;
